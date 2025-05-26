@@ -1,11 +1,11 @@
+from functions import minion_processing
+
 import streamlit as st
 import pandas as pd
 import json
 import copy
 import requests
-import csv
 from datetime import datetime
-from functions import minion_processing 
 
 @st.cache_data(ttl=3600)
 def fetch_and_process_data():
