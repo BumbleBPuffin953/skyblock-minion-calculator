@@ -1,8 +1,3 @@
 streamlit
 requests
 pandas
-math
-itertools
-copy
-json
-csv
