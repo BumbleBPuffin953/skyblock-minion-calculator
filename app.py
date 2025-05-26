@@ -125,11 +125,15 @@ if cost_ranges:
         cost_filtered = pd.concat([cost_filtered, filtered_df[filtered_df["Craft Cost"] >= 50_000_000]])
 
     filtered_df = cost_filtered.drop_duplicates()
+    
+filtered_df['Daily Coins'] = filtered_df['Daily Coins'].apply(
+    lambda x: f"{x / 1000:.0f}k" if abs(x) >= 1000 else str(x)
+)
 
-filtered_df['Daily Coins'] = filtered_df['Daily Coins'].apply(lambda x: f"{x / 1000:.0f}k" if x != 0 else "0")
-
-# Format "Craft Cost" to M
-filtered_df['Craft Cost'] = filtered_df['Craft Cost'].apply(lambda x: f"{x / 1_000_000:.1f}M" if x != 0 else "0")
+# Format "Craft Cost" to M, scale it properly and prevent truncation
+filtered_df['Craft Cost'] = filtered_df['Craft Cost'].apply(
+    lambda x: f"{x / 1_000_000:.1f}M" if abs(x) >= 1_000_000 else str(x)
+)
 
 # Display the updated DataFrame
 st.dataframe(filtered_df)
