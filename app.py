@@ -126,14 +126,5 @@ if cost_ranges:
 
     filtered_df = cost_filtered.drop_duplicates()
 
-filtered_df['Daily Coins'] = filtered_df['Daily Coins'].apply(
-    lambda x: f"{x / 1000:.0f}k" if abs(x) >= 1000 else f"{x:.0f}"
-)
-
-# Format "Craft Cost" to M without capping
-filtered_df['Craft Cost'] = filtered_df['Craft Cost'].apply(
-    lambda x: f"{x / 1_000_000:.1f}M" if abs(x) >= 1_000_000 else f"{x:.0f}"
-)
-
 # Display the updated DataFrame
 st.dataframe(filtered_df)
