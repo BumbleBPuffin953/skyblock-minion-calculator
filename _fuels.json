@@ -46,5 +46,14 @@
         "Drops": 1,
         "Duration": -1,
         "Name": "Enchanted Lava Bucket"
+    },
+    "EVERBURNING_FLAME": {
+        "Condition": {
+            "Family": "Combat"
+        },
+        "Speed": 0.4, 
+        "Drops": 1,
+        "Duration": -1,
+        "Name": "Everburning Flame"
     }
 }
