@@ -792,7 +792,17 @@
         "Tiers": [
             {
                 "Tier": 11,
-                "Speed": 13
+                "Speed": 13,
+                "Recipe": [
+                    {
+                        "Item": "ENDER_STONE",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_ENDSTONE",
+                        "Amount": 1016
+                    }
+                ]
             }
         ],
         "Drops": [
@@ -3335,7 +3345,17 @@
             },
             {
                 "Tier": 12,
-                "Speed": 7
+                "Speed": 7,
+                "Recipe": [
+                    {
+                        "Item": "WHEAT",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_WHEAT",
+                        "Amount": 2040
+                    }
+                ]
             }
         ],
         "Drops": [
