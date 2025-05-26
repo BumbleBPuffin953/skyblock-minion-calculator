@@ -72,12 +72,28 @@ def fetch_and_process_data():
 # Streamlit UI
 st.title("Skyblock Minion Calculator")
 
-# Initialize a session state variable to store the last updated timestamp
+# Get the user's local time zone using JavaScript and set it in session state
 if 'last_updated' not in st.session_state:
-    st.session_state.last_updated = datetime.now()
+    st.session_state.last_updated = datetime.now(pytz.utc)  # Store UTC time initially
 
-# Display the last updated timestamp underneath the title
-st.markdown(f"**Last Updated:** {st.session_state.last_updated.strftime('%Y-%m-%d %H:%M:%S')}")
+# Get the current UTC time and convert it to user's local time
+js_code = """
+    <script>
+        const localTime = new Date();
+        const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        window.localStorage.setItem("user_local_time_zone", localTimeZone);
+        window.localStorage.setItem("last_updated_time", localTime);
+    </script>
+"""
+st.markdown(js_code, unsafe_allow_html=True)
+
+# Get local time zone and convert last_updated to the local timezone
+local_time_zone = st.session_state.get("user_local_time_zone", "UTC")  # Fallback to UTC if not available
+local_time = st.session_state.last_updated.astimezone(pytz.timezone(local_time_zone))  # Convert the time to local timezone
+
+# Display the last updated timestamp in local time
+st.markdown(f"**Last Updated:** {local_time.strftime('%Y-%m-%d %H:%M:%S')} ({local_time_zone})")
+
 
 # Fetch and process data after the reload button has been clicked or app is loaded
 df = fetch_and_process_data()
