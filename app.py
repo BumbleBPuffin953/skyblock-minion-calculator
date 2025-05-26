@@ -111,6 +111,3 @@ if cost_ranges:
     filtered_df = cost_filtered.drop_duplicates()
 
 st.dataframe(filtered_df)
-
-if st.button('Force App Reload'):
-    st.experimental_rerun()
