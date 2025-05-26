@@ -71,16 +71,23 @@ df = fetch_and_process_data()
 minion_filter = st.multiselect("Filter Minions", options=df['Minion'].unique())
 fuel_filter = st.multiselect("Filter Fuel", options=df['Fuel'].unique())
 
-min_cost, max_cost = st.slider("Craft Cost Range", 
-                                             float(df['Craft Cost'].min()), 
-                                             float(df['Craft Cost'].max()), 
-                                             (float(df['Craft Cost'].min()), float(df['Craft Cost'].max())))
+cost_range = st.selectbox(
+    "Craft Cost Range",
+    ["All", "< 2M", "2M - 10M", "10M - 50M", "50M+"]
+)
 
 filtered_df = df[
     ((df['Minion'].isin(minion_filter)) | (len(minion_filter) == 0)) &
-    ((df['Fuel'].isin(fuel_filter)) | (len(fuel_filter) == 0)) &
-    (df['Craft Cost'] >= min_cost) &
-    (df['Craft Cost'] <= max_cost)
+    ((df['Fuel'].isin(fuel_filter)) | (len(fuel_filter) == 0))
 ]
+
+if cost_range == "< 2M":
+    filtered_df = filtered_df[filtered_df["Craft Cost"] < 2_000_000]
+elif cost_range == "2M - 10M":
+    filtered_df = filtered_df[(filtered_df["Craft Cost"] >= 2_000_000) & (filtered_df["Craft Cost"] < 10_000_000)]
+elif cost_range == "10M - 50M":
+    filtered_df = filtered_df[(filtered_df["Craft Cost"] >= 10_000_000) & (filtered_df["Craft Cost"] < 50_000_000)]
+elif cost_range == "50M+":
+    filtered_df = filtered_df[filtered_df["Craft Cost"] >= 50_000_000]
 
 st.dataframe(filtered_df)
