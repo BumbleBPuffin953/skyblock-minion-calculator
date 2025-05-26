@@ -53,10 +53,10 @@ def fetch_and_process_data():
                 tier = tiers['Tier']
                 profit = tiers['Profit']
                 cost = tiers['Cost']
-                rows.append([f'{minion} {tier}', upgrades_combo[0], upgrades_combo[1], upgrades_combo[2], profit, cost])
+                rows.append([minion, tier, upgrades_combo[0], upgrades_combo[1], upgrades_combo[2], profit, cost])
 
     # Convert to DataFrame
-    df = pd.DataFrame(rows, columns=["Minion", "Fuel", "Upgrade 1", "Upgrade 2", "Daily Coins", "Craft Cost"])
+    df = pd.DataFrame(rows, columns=["Minion", "Tier", "Fuel", "Upgrade 1", "Upgrade 2", "Daily Coins", "Craft Cost"])
 
     # Sort by Daily Coins descending
     df = df.sort_values(by="Daily Coins", ascending=False)
