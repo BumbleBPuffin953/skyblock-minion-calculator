@@ -157,6 +157,8 @@ def minion_processing(minions, fuels, upgrades,bazaar_cache):
             all_combinations[minion['Name']] = {}
 
         for fuel in fuel_list:
+            if not is_compatible(minion,fuel):
+                continue
             if minion['Name'] == "Gravel Minion":
                 for key, upgrade in upgrade_items:
                     if not is_compatible(minion,upgrade):
