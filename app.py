@@ -72,6 +72,7 @@ minion_filter = st.multiselect("Filter Minions", options=df['Minion'].unique())
 fuel_filter = st.multiselect("Filter Fuel", options=df['Fuel'].unique())
 
 all_upgrades = pd.unique(df[['Upgrade 1', 'Upgrade 2']].values.ravel('K'))
+all_upgrades = sorted([x for x in all_upgrades if pd.notna(x)])  # also remove NaNs if any
 upgrade_filter = st.multiselect("Filter Upgrades", options=all_upgrades)
 
 cost_ranges = st.multiselect(
