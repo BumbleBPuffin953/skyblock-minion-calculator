@@ -59,7 +59,7 @@ def fetch_and_process_data():
     df = pd.DataFrame(rows, columns=["Minion", "Tier", "Fuel", "Upgrade 1", "Upgrade 2", "Daily Coins", "Craft Cost"])
 
     # Sort by Daily Coins descending
-    df = df.sort_values(by="Daily Coins", ascending=False)
+    df = df.sort_values(by="Minion", ascending=True)
     return df
 
 # Streamlit UI
@@ -68,11 +68,11 @@ st.title("Skyblock Minion Calculator")
 df = fetch_and_process_data()
 
 # Filters
-minion_filter = st.multiselect("Filter Minions", options=sorted(df['Minion'].unique()))
-fuel_filter = st.multiselect("Filter Fuel", sorted(options=df['Fuel'].unique()))
+minion_filter = st.multiselect("Filter Minions", options=df['Minion'].unique())
+fuel_filter = st.multiselect("Filter Fuel", options=df['Fuel'].unique())
 
 all_upgrades = pd.unique(df[['Upgrade 1', 'Upgrade 2']].values.ravel('K'))
-upgrade_filter = st.multiselect("Filter Upgrades", options=sorted([x for x in all_upgrades if pd.notna(x)]))
+upgrade_filter = st.multiselect("Filter Upgrades", options=all_upgrades)
 
 cost_ranges = st.multiselect(
     "Select one or more Craft Cost Ranges",
