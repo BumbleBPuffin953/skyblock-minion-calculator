@@ -82,8 +82,7 @@ time_diff = datetime.now() - st.session_state.last_updated
 minutes_since_update = time_diff.total_seconds() / 60  # Convert to minutes
 
 # Display the time difference (minutes since last update) underneath the title
-st.title("Skyblock Minion Calculator")
-st.write(f"Minutes since last update: {int(minutes_since_update)} minutes")
+st.write(f"{int(minutes_since_update)} minutes since last update")
 
 # Fetch and process data after the reload button has been clicked or app is loaded
 df = fetch_and_process_data()
