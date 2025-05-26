@@ -1,0 +1,130 @@
+{
+    "DIAMOND_SPREADING": {
+        "Drops": [
+            {
+                "Item": "DIAMOND",
+                "Amount": 1,
+                "Chance": 0.1,
+                "NPC Price": 8,
+                "Enchanted": {
+                    "ENCHANTED_DIAMOND": 160
+                }
+            }
+        ],
+        "Name": "Diamond Spreading",
+        "Dupe": false
+    },
+    "MINION_EXPANDER": {
+        "Speed": 0.05,
+        "Name": "Minion Expander",
+        "Dupe": true
+    },
+    "BERBERIS_FUEL_INJECTOR": {
+        "Condition": {
+            "Family": "Farming"
+        },
+        "Drops": [
+            {
+                "Item": "LUSH_BERBERIS",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 3,
+                "Cooldown": 300,
+                "Enchanted": {
+                    "ENCHANTED_LUSH_BERBERIS": 160
+                }
+            }
+        ],
+        "Speed": 0.15,
+        "Name": "Berberis Fuel Injector",
+        "Dupe": false
+    },
+    "FLYCATCHER_UPGRADE": {
+        "Speed": 0.2,
+        "Name": "Flycatcher",
+        "Dupe": true
+    },
+    "CORRUPT_SOIL": {
+        "Condition": {
+            "Mob Spawning": 1
+        },
+        "Drops": [
+            {
+                "Item": "SULPHUR_ORE",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 10,
+                "Enchanted": {
+                    "ENCHANTED_SULPHUR": 160
+                }
+            },
+            {
+                "Item": "CORRUPTED_FRAGMENT",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 1,
+                "Enchanted": {
+                    "CORRUPTED_FRAGMENT": 1
+                }
+            }
+        ],
+        "Name": "Corrupt Soil",
+        "Dupe": false
+    },
+    "SUPER_COMPACTOR_3000": {
+        "Name": "Super Compactor",
+        "Dupe": false
+    },
+    "SOULFLOW_ENGINE": {
+        "Drops": [
+            {
+                "Item": "RAW_SOULFLOW",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 0,
+                "Cooldown": 90,
+                "Enchanted": {
+                    "SOULFLOW": 160
+                }
+            }
+        ],
+        "Name": "Soulflow Engine",
+        "Dupe": false,
+        "Chance": 0.5
+    },
+    "LESSER_SOULFLOW_ENGINE": {
+        "Drops": [
+            {
+                "Item": "RAW_SOULFLOW",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 0,
+                "Cooldown": 180,
+                "Enchanted": {
+                    "SOULFLOW": 160
+                }
+            }
+        ],
+        "Name": "Lesser Soulflow Engine",
+        "Dupe": false,
+        "Chance": 0.5
+    },
+    "ENCHANTED_EGG": {
+        "Condition": {
+            "Name": "Chicken Minion"
+        },
+        "Drops": [
+            {
+                "Item": "EGG",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 3,
+                "Enchanted": {
+                    "ENCHANTED_EGG": 144
+                }
+            }
+        ],
+        "Name": "Enchanted Egg",
+        "Dupe": false
+    }
+}

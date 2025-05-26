@@ -1,0 +1,50 @@
+{
+    "FOUL_FLESH": {
+        "Speed": 0.9,
+        "Drops": 1,
+        "Duration": 18000,
+        "Name": "Foul Flesh"
+    },
+    "HAMSTER_WHEEL": {
+        "Speed": 0.5,
+        "Drops": 1,
+        "Duration": 86400,
+        "Name": "Hamster Wheel"
+    },
+    "ENCHANTED_CHARCOAL": {
+        "Speed": 0.20,
+        "Drops": 1,
+        "Duration": 129600,
+        "Name": "Enchanted Charcoal"
+    },
+    "HYPER_CATALYST": {
+        "Speed": 0,
+        "Drops": 4,
+        "Duration": 21600,
+        "Name": "Hyper Catalyst"
+    },
+    "CHEESE_FUEL": {
+        "Speed": 0,
+        "Drops": 2,
+        "Duration": 3600,
+        "Name": "Cheese Fuel"
+    },
+    "PLASMA_BUCKET": {
+        "Speed": 0.35,
+        "Drops": 1,
+        "Duration": -1,
+        "Name": "Plasma Bucket"
+    },
+    "MAGMA_BUCKET": {
+        "Speed": 0.3,
+        "Drops": 1,
+        "Duration": -1,
+        "Name": "Magma Bucket"
+    },
+    "ENCHANTED_LAVA_BUCKET": {
+        "Speed": 0.25,
+        "Drops": 1,
+        "Duration": -1,
+        "Name": "Enchanted Lava Bucket"
+    }
+}

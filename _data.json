@@ -1,0 +1,3424 @@
+{
+    "Acacia Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 27,
+                "Recipe": [
+                    {
+                        "Item": "LOG_2",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_ACACIA_LOG",
+                        "Amount": 1016
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "LOG_2",
+                "Amount": 4,
+                "Chance": 1.0,
+                "NPC Price": 2,
+                "Enchanted": {
+                    "ENCHANTED_ACACIA_LOG": 160
+                }
+            }
+        ],
+        "Family": "Foraging",
+        "Mob Spawning": 0,
+        "Name": "Acacia Minion"
+    },
+    "Birch Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 27,
+                "Recipe": [
+                    {
+                        "Item": "LOG:2",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_BIRCH_LOG",
+                        "Amount": 1016
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "LOG:2",
+                "Amount": 4,
+                "Chance": 1.0,
+                "NPC Price": 2,
+                "Enchanted": {
+                    "ENCHANTED_BIRCH_LOG": 160
+                }
+            }
+        ],
+        "Family": "Foraging",
+        "Mob Spawning": 0,
+        "Name": "Birch Minion"
+    },
+    "Blaze Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 16.5,
+                "Recipe": [
+                    {
+                        "Item": "BLAZE_ROD",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_BLAZE_POWDER",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_BLAZE_ROD",
+                        "Amount": 8
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 15,
+                "Recipe": [
+                    {
+                        "Item": "BLAZE_ROD",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_BLAZE_POWDER",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_BLAZE_ROD",
+                        "Amount": 24
+                    },
+                    {
+                        "Item": "Coins",
+                        "Amount": 2000000
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "BLAZE_ROD",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 9,
+                "Enchanted": {
+                    "ENCHANTED_BLAZE_POWDER": 160
+                }
+            }
+        ],
+        "Family": "Combat",
+        "Mob Spawning": 1,
+        "Name": "Blaze Minion"
+    },
+    "Cactus Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 15,
+                "Recipe": [
+                    {
+                        "Item": "CACTUS",
+                        "Amount": 832
+                    },
+                    {
+                        "Item": "ENCHANTED_CACTUS_GREEN",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_CACTUS",
+                        "Amount": 24
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 12,
+                "Recipe": [
+                    {
+                        "Item": "CACTUS",
+                        "Amount": 832
+                    },
+                    {
+                        "Item": "ENCHANTED_CACTUS_GREEN",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_CACTUS",
+                        "Amount": 56
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "CACTUS",
+                "Amount": 3,
+                "Chance": 1.0,
+                "NPC Price": 3,
+                "Enchanted": {
+                    "ENCHANTED_CACTUS_GREEN": 160
+                }
+            }
+        ],
+        "Family": "Farming",
+        "Mob Spawning": 0,
+        "Name": "Cactus Minion"
+    },
+    "Carrot Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 10,
+                "Recipe": [
+                    {
+                        "Item": "CARROT_ITEM",
+                        "Amount": 832
+                    },
+                    {
+                        "Item": "ENCHANTED_CARROT",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_GOLDEN_CARROT",
+                        "Amount": 24
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 8,
+                "Recipe": [
+                    {
+                        "Item": "CARROT_ITEM",
+                        "Amount": 832
+                    },
+                    {
+                        "Item": "ENCHANTED_CARROT",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_GOLDEN_CARROT",
+                        "Amount": 56
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "CARROT_ITEM",
+                "Amount": 3,
+                "Chance": 1.0,
+                "NPC Price": 3,
+                "Enchanted": {
+                    "ENCHANTED_CARROT": 160
+                }
+            }
+        ],
+        "Family": "Farming",
+        "Mob Spawning": 0,
+        "Name": "Carrot Minion"
+    },
+    "Cave Spider Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 13,
+                "Recipe": [
+                    {
+                        "Item": "SPIDER_EYE",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_SPIDER_EYE",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_FERMENTED_SPIDER_EYE",
+                        "Amount": 16
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "SPIDER_EYE",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 3,
+                "Enchanted": {
+                    "ENCHANTED_SPIDER_EYE": 160
+                }
+            },
+            {
+                "Item": "STRING",
+                "Amount": 1,
+                "Chance": 0.5,
+                "NPC Price": 3,
+                "Enchanted": {
+                    "ENCHANTED_STRING": 160
+                }
+            }
+        ],
+        "Family": "Combat",
+        "Mob Spawning": 1,
+        "Name": "Cave Spider Minion"
+    },
+    "Chicken Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 15,
+                "Recipe": [
+                    {
+                        "Item": "RAW_CHICKEN",
+                        "Amount": 960
+                    },
+                    {
+                        "Item": "ENCHANTED_RAW_CHICKEN",
+                        "Amount": 1016
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 12,
+                "Recipe": [
+                    {
+                        "Item": "RAW_CHICKEN",
+                        "Amount": 960
+                    },
+                    {
+                        "Item": "ENCHANTED_RAW_CHICKEN",
+                        "Amount": 2040
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "RAW_CHICKEN",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 4,
+                "Enchanted": {
+                    "ENCHANTED_RAW_CHICKEN": 160
+                }
+            },
+            {
+                "Item": "FEATHER",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 3,
+                "Enchanted": {
+                    "ENCHANTED_FEATHER": 160
+                }
+            }
+        ],
+        "Family": "Farming",
+        "Mob Spawning": 1,
+        "Name": "Chicken Minion"
+    },
+    "Clay Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 16,
+                "Recipe": [
+                    {
+                        "Item": "CLAY_BALL",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_CLAY_BALL",
+                        "Amount": 1016
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 14,
+                "Recipe": [
+                    {
+                        "Item": "CLAY_BALL",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_CLAY_BALL",
+                        "Amount": 1016
+                    },
+                    {
+                        "Item": "GENERATOR_UPGRADE_STONE_CLAY_12",
+                        "Amount": 1
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "CLAY_BALL",
+                "Amount": 4,
+                "Chance": 1.0,
+                "NPC Price": 3,
+                "Enchanted": {
+                    "ENCHANTED_CLAY_BALL": 160
+                }
+            }
+        ],
+        "Family": "Fishing",
+        "Mob Spawning": 0,
+        "Name": "Clay Minion"
+    },
+    "Coal Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 7,
+                "Recipe": [
+                    {
+                        "Item": "COAL",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_COAL",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_COAL_BLOCK",
+                        "Amount": 8
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 6,
+                "Recipe": [
+                    {
+                        "Item": "COAL",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_COAL",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_COAL_BLOCK",
+                        "Amount": 24
+                    },
+                    {
+                        "Item": "Coins",
+                        "Amount": 2000000
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "COAL",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 2,
+                "Enchanted": {
+                    "ENCHANTED_COAL": 160
+                }
+            }
+        ],
+        "Family": "Mining",
+        "Mob Spawning": 0,
+        "Name": "Coal Minion"
+    },
+    "Cobblestone Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 7,
+                "Recipe": [
+                    {
+                        "Item": "COBBLESTONE",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_COBBLESTONE",
+                        "Amount": 1016
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 6,
+                "Recipe": [
+                    {
+                        "Item": "COBBLESTONE",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_COBBLESTONE",
+                        "Amount": 2040
+                    },
+                    {
+                        "Item": "Coins",
+                        "Amount": 2000000
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "COBBLESTONE",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 1,
+                "Enchanted": {
+                    "ENCHANTED_COBBLESTONE": 160
+                }
+            }
+        ],
+        "Family": "Mining",
+        "Mob Spawning": 0,
+        "Name": "Cobblestone Minion"
+    },
+    "Cocoa Beans Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 15,
+                "Recipe": [
+                    {
+                        "Item": "INK_SACK:3",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_COCOA",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_COOKIE",
+                        "Amount": 8
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 12,
+                "Recipe": [
+                    {
+                        "Item": "INK_SACK:3",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_COCOA",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_COOKIE",
+                        "Amount": 24
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "INK_SACK:3",
+                "Amount": 3,
+                "Chance": 1.0,
+                "NPC Price": 3,
+                "Enchanted": {
+                    "ENCHANTED_COCOA": 160
+                }
+            }
+        ],
+        "Family": "Farming",
+        "Mob Spawning": 0,
+        "Name": "Cocoa Beans Minion"
+    },
+    "Cow Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 13,
+                "Recipe": [
+                    {
+                        "Item": "RAW_BEEF",
+                        "Amount": 960
+                    },
+                    {
+                        "Item": "ENCHANTED_RAW_BEEF",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_LEATHER",
+                        "Amount": 256
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 10,
+                "Recipe": [
+                    {
+                        "Item": "RAW_BEEF",
+                        "Amount": 960
+                    },
+                    {
+                        "Item": "ENCHANTED_RAW_BEEF",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_LEATHER",
+                        "Amount": 768
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "RAW_BEEF",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 4,
+                "Enchanted": {
+                    "ENCHANTED_RAW_BEEF": 160
+                }
+            },
+            {
+                "Item": "LEATHER",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 3,
+                "Enchanted": {
+                    "ENCHANTED_LEATHER": 160
+                }
+            }
+        ],
+        "Family": "Farming",
+        "Mob Spawning": 1,
+        "Name": "Cow Minion"
+    },
+    "Creeper Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 14,
+                "Recipe": [
+                    {
+                        "Item": "SULPHUR",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_GUNPOWDER",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_FIREWORK_ROCKET",
+                        "Amount": 16
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "SULPHUR",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 4,
+                "Enchanted": {
+                    "ENCHANTED_GUNPOWDER": 160
+                }
+            }
+        ],
+        "Family": "Combat",
+        "Mob Spawning": 1,
+        "Name": "Creeper Minion"
+    },
+    "Dark Oak Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 27,
+                "Recipe": [
+                    {
+                        "Item": "LOG_2:1",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_DARK_OAK_LOG",
+                        "Amount": 1016
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "LOG_2:1",
+                "Amount": 4,
+                "Chance": 1.0,
+                "NPC Price": 2,
+                "Enchanted": {
+                    "ENCHANTED_DARK_OAK_LOG": 160
+                }
+            }
+        ],
+        "Family": "Foraging",
+        "Mob Spawning": 0,
+        "Name": "Dark Oak Minion"
+    },
+    "Diamond Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 15,
+                "Recipe": [
+                    {
+                        "Item": "DIAMOND",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_DIAMOND",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_DIAMOND_BLOCK",
+                        "Amount": 8
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 12,
+                "Recipe": [
+                    {
+                        "Item": "DIAMOND",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_DIAMOND",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_DIAMOND_BLOCK",
+                        "Amount": 24
+                    },
+                    {
+                        "Item": "Coins",
+                        "Amount": 2000000
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "DIAMOND",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 8,
+                "Enchanted": {
+                    "ENCHANTED_DIAMOND": 160
+                }
+            }
+        ],
+        "Family": "Mining",
+        "Mob Spawning": 0,
+        "Name": "Diamond Minion"
+    },
+    "Emerald Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 14,
+                "Recipe": [
+                    {
+                        "Item": "EMERALD",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_EMERALD",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_EMERALD_BLOCK",
+                        "Amount": 8
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 12,
+                "Recipe": [
+                    {
+                        "Item": "EMERALD",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_EMERALD",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_EMERALD_BLOCK",
+                        "Amount": 24
+                    },
+                    {
+                        "Item": "Coins",
+                        "Amount": 2000000
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "EMERALD",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 6,
+                "Enchanted": {
+                    "ENCHANTED_EMERALD": 160
+                }
+            }
+        ],
+        "Family": "Mining",
+        "Mob Spawning": 0,
+        "Name": "Emerald Minion"
+    },
+    "End Stone Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 13
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "ENDER_STONE",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 2,
+                "Enchanted": {
+                    "ENCHANTED_ENDSTONE": 160
+                }
+            }
+        ],
+        "Family": "Mining",
+        "Mob Spawning": 0,
+        "Name": "End Stone Minion"
+    },
+    "Enderman Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 18,
+                "Recipe": [
+                    {
+                        "Item": "ENDER_STONE",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_ENDSTONE",
+                        "Amount": 1016
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "ENDER_PEARL",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 7,
+                "Enchanted": {
+                    "ENCHANTED_ENDER_PEARL": 20
+                }
+            }
+        ],
+        "Family": "Combat",
+        "Mob Spawning": 1,
+        "Name": "Enderman Minion"
+    },
+    "Fishing Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 35,
+                "Recipe": [
+                    {
+                        "Item": "RAW_FISH",
+                        "Amount": 960
+                    },
+                    {
+                        "Item": "ENCHANTED_RAW_FISH",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_COOKED_FISH",
+                        "Amount": 8
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 30,
+                "Recipe": [
+                    {
+                        "Item": "RAW_FISH",
+                        "Amount": 960
+                    },
+                    {
+                        "Item": "ENCHANTED_RAW_FISH",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_COOKED_FISH",
+                        "Amount": 8
+                    },
+                    {
+                        "Item": "GENERATOR_UPGRADE_STONE_FISHING_12",
+                        "Amount": 1
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "RAW_FISH",
+                "Amount": 1,
+                "Chance": 0.5,
+                "NPC Price": 6,
+                "Enchanted": {
+                    "ENCHANTED_RAW_FISH": 160
+                }
+            },
+            {
+                "Item": "RAW_FISH:1",
+                "Amount": 1,
+                "Chance": 0.25,
+                "NPC Price": 10,
+                "Enchanted": {
+                    "ENCHANTED_RAW_SALMON": 160
+                }
+            },
+            {
+                "Item": "RAW_FISH:3",
+                "Amount": 1,
+                "Chance": 0.12,
+                "NPC Price": 15,
+                "Enchanted": {
+                    "ENCHANTED_PUFFERFISH": 160
+                }
+            },
+            {
+                "Item": "RAW_FISH:2",
+                "Amount": 1,
+                "Chance": 0.04,
+                "NPC Price": 20,
+                "Enchanted": {
+                    "ENCHANTED_CLOWNFISH": 160
+                }
+            },
+            {
+                "Item": "PRISMARINE_CRYSTALS",
+                "Amount": 1,
+                "Chance": 0.03,
+                "NPC Price": 5,
+                "Enchanted": {
+                    "ENCHANTED_PRISMARINE_CRYSTALS": 80
+                }
+            },
+            {
+                "Item": "PRISMARINE_SHARD",
+                "Amount": 1,
+                "Chance": 0.03,
+                "NPC Price": 5,
+                "Enchanted": {
+                    "ENCHANTED_PRISMARINE_SHARD": 80
+                }
+            },
+            {
+                "Item": "SPONGE",
+                "Amount": 1,
+                "Chance": 0.03,
+                "NPC Price": 5,
+                "Enchanted": {
+                    "ENCHANTED_SPONGE": 40
+                }
+            }
+        ],
+        "Family": "Fishing",
+        "Mob Spawning": 0,
+        "Name": "Fishing Minion"
+    },
+    "Flower Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 18,
+                "Recipe": [
+                    {
+                        "Item": "YELLOW_FLOWER",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_DANDELION",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_POPPY",
+                        "Amount": 8
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 15,
+                "Recipe": [
+                    {
+                        "Item": "YELLOW_FLOWER",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_DANDELION",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_POPPY",
+                        "Amount": 24
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "YELLOW_FLOWER",
+                "Amount": 1,
+                "Chance": 0.5,
+                "NPC Price": 1,
+                "Enchanted": {
+                    "ENCHANTED_DANDELION": 160
+                }
+            },
+            {
+                "Item": "RED_ROSE",
+                "Amount": 1,
+                "Chance": 0.5,
+                "NPC Price": 1,
+                "Enchanted": {
+                    "ENCHANTED_POPPY": 576
+                }
+            }
+        ],
+        "Family": "Foraging",
+        "Mob Spawning": 0,
+        "Name": "Flower Minion"
+    },
+    "Ghast Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 32,
+                "Recipe": [
+                    {
+                        "Item": "GHAST_TEAR",
+                        "Amount": 960
+                    },
+                    {
+                        "Item": "ENCHANTED_GHAST_TEAR",
+                        "Amount": 25568
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 30,
+                "Recipe": [
+                    {
+                        "Item": "GHAST_TEAR",
+                        "Amount": 960
+                    },
+                    {
+                        "Item": "ENCHANTED_GHAST_TEAR",
+                        "Amount": 51168
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "GHAST_TEAR",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 16,
+                "Enchanted": {
+                    "ENCHANTED_GHAST_TEAR": 5
+                }
+            }
+        ],
+        "Family": "Combat",
+        "Mob Spawning": 1,
+        "Name": "Ghast Minion"
+    },
+    "Glowstone Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 13,
+                "Recipe": [
+                    {
+                        "Item": "GLOWSTONE_DUST",
+                        "Amount": 896
+                    },
+                    {
+                        "Item": "ENCHANTED_GLOWSTONE_DUST",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_GLOWSTONE",
+                        "Amount": 24
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 11,
+                "Recipe": [
+                    {
+                        "Item": "GLOWSTONE_DUST",
+                        "Amount": 896
+                    },
+                    {
+                        "Item": "ENCHANTED_GLOWSTONE_DUST",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_GLOWSTONE",
+                        "Amount": 56
+                    },
+                    {
+                        "Item": "Coins",
+                        "Amount": 2000000
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "GLOWSTONE_DUST",
+                "Amount": 3,
+                "Chance": 1.0,
+                "NPC Price": 2,
+                "Enchanted": {
+                    "ENCHANTED_GLOWSTONE_DUST": 160
+                }
+            }
+        ],
+        "Family": "Mining",
+        "Mob Spawning": 0,
+        "Name": "Glowstone Minion"
+    },
+    "Gold Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 11,
+                "Recipe": [
+                    {
+                        "Item": "GOLD_INGOT",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_GOLD",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_GOLD_BLOCK",
+                        "Amount": 8
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 9,
+                "Recipe": [
+                    {
+                        "Item": "GOLD_INGOT",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_GOLD",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_GOLD_BLOCK",
+                        "Amount": 24
+                    },
+                    {
+                        "Item": "Coins",
+                        "Amount": 2000000
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "GOLD_INGOT",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 4,
+                "Enchanted": {
+                    "ENCHANTED_GOLD": 160
+                }
+            }
+        ],
+        "Family": "Mining",
+        "Mob Spawning": 0,
+        "Name": "Gold Minion"
+    },
+    "Gravel Minion": {
+        "Name": "Gravel Minion",
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 13,
+                "Recipe": [
+                    {
+                        "Item": "GRAVEL",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_FLINT",
+                        "Amount": 1016
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "FLINT",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 4,
+                "Enchanted": {
+                    "ENCHANTED_FLINT": 160
+                }
+            }
+        ],
+        "Family": "Mining",
+        "Mob Spawning": 0
+    },
+    "Hard Stone Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 7,
+                "Recipe": [
+                    {
+                        "Item": "HARD_STONE",
+                        "Amount": 768
+                    },
+                    {
+                        "Item": "ENCHANTED_HARD_STONE",
+                        "Amount": 1016
+                    },
+                    {
+                        "Item": "CONCENTRATED_STONE",
+                        "Amount": 12
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 6,
+                "Recipe": [
+                    {
+                        "Item": "HARD_STONE",
+                        "Amount": 768
+                    },
+                    {
+                        "Item": "ENCHANTED_HARD_STONE",
+                        "Amount": 1016
+                    },
+                    {
+                        "Item": "CONCENTRATED_STONE",
+                        "Amount": 28
+                    },
+                    {
+                        "Item": "Coins",
+                        "Amount": 2000000
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "HARD_STONE",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 1,
+                "Enchanted": {
+                    "ENCHANTED_HARD_STONE": 576
+                }
+            }
+        ],
+        "Family": "Mining",
+        "Mob Spawning": 0,
+        "Name": "Hard Stone Minion"
+    },
+    "Ice Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 7,
+                "Recipe": [
+                    {
+                        "Item": "ICE",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "PACKED_ICE",
+                        "Amount": 896
+                    },
+                    {
+                        "Item": "ENCHANTED_ICE",
+                        "Amount": 960
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 6,
+                "Recipe": [
+                    {
+                        "Item": "ICE",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "PACKED_ICE",
+                        "Amount": 896
+                    },
+                    {
+                        "Item": "ENCHANTED_ICE",
+                        "Amount": 1984
+                    },
+                    {
+                        "Item": "Coins",
+                        "Amount": 1000000
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "ICE",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 0.5,
+                "Enchanted": {
+                    "ENCHANTED_ICE": 160
+                }
+            }
+        ],
+        "Family": "Mining",
+        "Mob Spawning": 0,
+        "Name": "Ice Minion"
+    },
+    "Iron Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 8,
+                "Recipe": [
+                    {
+                        "Item": "IRON_INGOT",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_IRON",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_IRON_BLOCK",
+                        "Amount": 8
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 7,
+                "Recipe": [
+                    {
+                        "Item": "IRON_INGOT",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_IRON",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_IRON_BLOCK",
+                        "Amount": 24
+                    },
+                    {
+                        "Item": "Coins",
+                        "Amount": 2000000
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "IRON_INGOT",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 2,
+                "Enchanted": {
+                    "ENCHANTED_IRON": 160
+                }
+            }
+        ],
+        "Family": "Mining",
+        "Mob Spawning": 0,
+        "Name": "Iron Minion"
+    },
+    "Jungle Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 27,
+                "Recipe": [
+                    {
+                        "Item": "LOG:3",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_JUNGLE_LOG",
+                        "Amount": 1016
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "LOG:3",
+                "Amount": 4,
+                "Chance": 1.0,
+                "NPC Price": 2,
+                "Enchanted": {
+                    "ENCHANTED_JUNGLE_LOG": 160
+                }
+            }
+        ],
+        "Family": "Foraging",
+        "Mob Spawning": 0,
+        "Name": "Jungle Minion"
+    },
+    "Lapis Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 18,
+                "Recipe": [
+                    {
+                        "Item": "INK_SACK:4",
+                        "Amount": 768
+                    },
+                    {
+                        "Item": "ENCHANTED_LAPIS_LAZULI",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_LAPIS_LAZULI_BLOCK",
+                        "Amount": 56
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 16,
+                "Recipe": [
+                    {
+                        "Item": "INK_SACK:4",
+                        "Amount": 768
+                    },
+                    {
+                        "Item": "ENCHANTED_LAPIS_LAZULI",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_LAPIS_LAZULI_BLOCK",
+                        "Amount": 120
+                    },
+                    {
+                        "Item": "Coins",
+                        "Amount": 2000000
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "INK_SACK:4",
+                "Amount": 4.5,
+                "Chance": 1.0,
+                "NPC Price": 1,
+                "Enchanted": {
+                    "ENCHANTED_LAPIS_LAZULI": 160
+                }
+            }
+        ],
+        "Family": "Mining",
+        "Mob Spawning": 0,
+        "Name": "Lapis Minion"
+    },
+    "Magma Cube Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 18,
+                "Recipe": [
+                    {
+                        "Item": "INK_SACK:4",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_LAPIS_LAZULI",
+                        "Amount": 1016
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 16,
+                "Recipe": [
+                    {
+                        "Item": "INK_SACK:4",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_LAPIS_LAZULI",
+                        "Amount": 2040
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "MAGMA_CREAM",
+                "Amount": 2,
+                "Chance": 1.0,
+                "NPC Price": 8,
+                "Enchanted": {
+                    "ENCHANTED_MAGMA_CREAM": 160
+                }
+            }
+        ],
+        "Family": "Combat",
+        "Mob Spawning": 1,
+        "Name": "Magma Cube Minion"
+    },
+    "Melon Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 13,
+                "Recipe": [
+                    {
+                        "Item": "MELON",
+                        "Amount": 768
+                    },
+                    {
+                        "Item": "MELON_BLOCK",
+                        "Amount": 892
+                    },
+                    {
+                        "Item": "ENCHANTED_MELON",
+                        "Amount": 960
+                    },
+                    {
+                        "Item": "ENCHANTED_MELON_BLOCK",
+                        "Amount": 24
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 10,
+                "Recipe": [
+                    {
+                        "Item": "MELON",
+                        "Amount": 768
+                    },
+                    {
+                        "Item": "MELON_BLOCK",
+                        "Amount": 892
+                    },
+                    {
+                        "Item": "ENCHANTED_MELON",
+                        "Amount": 960
+                    },
+                    {
+                        "Item": "ENCHANTED_MELON_BLOCK",
+                        "Amount": 56
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "MELON",
+                "Amount": 5,
+                "Chance": 1.0,
+                "NPC Price": 2,
+                "Enchanted": {
+                    "ENCHANTED_MELON": 160
+                }
+            }
+        ],
+        "Family": "Farming",
+        "Mob Spawning": 0,
+        "Name": "Melon Minion"
+    },
+    "Mithril Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 55,
+                "Recipe": [
+                    {
+                        "Item": "MITHRIL_ORE",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_MITHRIL",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "REFINED_MITHRIL",
+                        "Amount": 8
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 50,
+                "Recipe": [
+                    {
+                        "Item": "MITHRIL_ORE",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_MITHRIL",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "REFINED_MITHRIL",
+                        "Amount": 24
+                    },
+                    {
+                        "Item": "Coins",
+                        "Amount": 2000000
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "MITHRIL_ORE",
+                "Amount": 2,
+                "Chance": 1.0,
+                "NPC Price": 8,
+                "Enchanted": {
+                    "ENCHANTED_MITHRIL": 160
+                }
+            }
+        ],
+        "Family": "Mining",
+        "Mob Spawning": 0,
+        "Name": "Mithril Minion"
+    },
+    "Mushroom Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 16,
+                "Recipe": [
+                    {
+                        "Item": "RED_MUSHROOM",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_RED_MUSHROOM",
+                        "Amount": 1016
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 12,
+                "Recipe": [
+                    {
+                        "Item": "RED_MUSHROOM",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_RED_MUSHROOM",
+                        "Amount": 1528
+                    },
+                    {
+                        "Item": "ENCHANTED_BROWN_MUSHROOM",
+                        "Amount": 512
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "BROWN_MUSHROOM",
+                "Amount": 1,
+                "Chance": 0.5,
+                "NPC Price": 10,
+                "Enchanted": {
+                    "ENCHANTED_BROWN_MUSHROOM": 160
+                }
+            },
+            {
+                "Item": "RED_MUSHROOM",
+                "Amount": 1,
+                "Chance": 0.5,
+                "NPC Price": 10,
+                "Enchanted": {
+                    "ENCHANTED_RED_MUSHROOM": 160
+                }
+            }
+        ],
+        "Family": "Farming",
+        "Mob Spawning": 0,
+        "Name": "Mushroom Minion"
+    },
+    "Mycelium Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 13,
+                "Recipe": [
+                    {
+                        "Item": "MYCEL",
+                        "Amount": 848
+                    },
+                    {
+                        "Item": "ENCHANTED_MYCELIUM",
+                        "Amount": 1008
+                    },
+                    {
+                        "Item": "ENCHANTED_MYCELIUM_CUBE",
+                        "Amount": 24
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 11,
+                "Recipe": [
+                    {
+                        "Item": "MYCEL",
+                        "Amount": 848
+                    },
+                    {
+                        "Item": "ENCHANTED_MYCELIUM",
+                        "Amount": 1008
+                    },
+                    {
+                        "Item": "ENCHANTED_MYCELIUM_CUBE",
+                        "Amount": 56
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "MYCEL",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 5,
+                "Enchanted": {
+                    "ENCHANTED_MYCELIUM": 160
+                }
+            }
+        ],
+        "Family": "Mining",
+        "Mob Spawning": 0,
+        "Name": "Mycelium Minion"
+    },
+    "Nether Wart Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 32,
+                "Recipe": [
+                    {
+                        "Item": "MYCEL",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_MYCELIUM",
+                        "Amount": 1016
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 27,
+                "Recipe": [
+                    {
+                        "Item": "MYCEL",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_MYCELIUM",
+                        "Amount": 2040
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "NETHER_STALK",
+                "Amount": 3,
+                "Chance": 1,
+                "NPC Price": 5,
+                "Enchanted": {
+                    "ENCHANTED_NETHER_STALK": 160
+                }
+            }
+        ],
+        "Family": "Farming",
+        "Mob Spawning": 0,
+        "Name": "Nether Wart Minion"
+    },
+    "Oak Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 27,
+                "Recipe": [
+                    {
+                        "Item": "LOG",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_OAK_LOG",
+                        "Amount": 1016
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "LOG",
+                "Amount": 4,
+                "Chance": 1.0,
+                "NPC Price": 2,
+                "Enchanted": {
+                    "ENCHANTED_OAK_LOG": 160
+                }
+            }
+        ],
+        "Family": "Foraging",
+        "Mob Spawning": 0,
+        "Name": "Oak Minion"
+    },
+    "Obsidian Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 24,
+                "Recipe": [
+                    {
+                        "Item": "OBSIDIAN",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_OBSIDIAN",
+                        "Amount": 1016
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 21,
+                "Recipe": [
+                    {
+                        "Item": "OBSIDIAN",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_OBSIDIAN",
+                        "Amount": 2040
+                    },
+                    {
+                        "Item": "Coins",
+                        "Amount": 2000000
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "OBSIDIAN",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 7,
+                "Enchanted": {
+                    "ENCHANTED_OBSIDIAN": 160
+                }
+            }
+        ],
+        "Family": "Mining",
+        "Mob Spawning": 0,
+        "Name": "Obsidian Minion"
+    },
+    "Pig Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 13,
+                "Recipe": [
+                    {
+                        "Item": "PORK",
+                        "Amount": 960
+                    },
+                    {
+                        "Item": "ENCHANTED_PORK",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_GRILLED_PORK",
+                        "Amount": 8
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 10,
+                "Recipe": [
+                    {
+                        "Item": "PORK",
+                        "Amount": 960
+                    },
+                    {
+                        "Item": "ENCHANTED_PORK",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_GRILLED_PORK",
+                        "Amount": 24
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "PORK",
+                "Amount": 1,
+                "Chance": 1,
+                "NPC Price": 5,
+                "Enchanted": {
+                    "ENCHANTED_PORK": 160
+                }
+            }
+        ],
+        "Family": "Farming",
+        "Mob Spawning": 1,
+        "Name": "Pig Minion"
+    },
+    "Potato Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 10,
+                "Recipe": [
+                    {
+                        "Item": "POTATO_ITEM",
+                        "Amount": 896
+                    },
+                    {
+                        "Item": "ENCHANTED_POTATO",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_BAKED_POTATO",
+                        "Amount": 24
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 8,
+                "Recipe": [
+                    {
+                        "Item": "POTATO_ITEM",
+                        "Amount": 896
+                    },
+                    {
+                        "Item": "ENCHANTED_POTATO",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_BAKED_POTATO",
+                        "Amount": 56
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "POTATO_ITEM",
+                "Amount": 3,
+                "Chance": 1.0,
+                "NPC Price": 3,
+                "Enchanted": {
+                    "ENCHANTED_POTATO": 160
+                }
+            }
+        ],
+        "Family": "Farming",
+        "Mob Spawning": 0,
+        "Name": "Potato Minion"
+    },
+    "Pumpkin Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 16,
+                "Recipe": [
+                    {
+                        "Item": "PUMPKIN",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_PUMPKIN",
+                        "Amount": 1016
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 12,
+                "Recipe": [
+                    {
+                        "Item": "PUMPKIN",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_PUMPKIN",
+                        "Amount": 2040
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "PUMPKIN",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 10,
+                "Enchanted": {
+                    "ENCHANTED_PUMPKIN": 160
+                }
+            }
+        ],
+        "Family": "Farming",
+        "Mob Spawning": 0,
+        "Name": "Pumpkin Minion"
+    },
+    "Quartz Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 11.5,
+                "Recipe": [
+                    {
+                        "Item": "QUARTZ",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_QUARTZ",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_QUARTZ_BLOCK",
+                        "Amount": 8
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 10,
+                "Recipe": [
+                    {
+                        "Item": "QUARTZ",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_QUARTZ",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_QUARTZ_BLOCK",
+                        "Amount": 24
+                    },
+                    {
+                        "Item": "Coins",
+                        "Amount": 2000000
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "QUARTZ",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 4,
+                "Enchanted": {
+                    "ENCHANTED_QUARTZ": 160
+                }
+            }
+        ],
+        "Family": "Mining",
+        "Mob Spawning": 0,
+        "Name": "Quartz Minion"
+    },
+    "Rabbit Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 13,
+                "Recipe": [
+                    {
+                        "Item": "RABBIT",
+                        "Amount": 960
+                    },
+                    {
+                        "Item": "ENCHANTED_RABBIT_FOOT",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_RABBIT_HIDE",
+                        "Amount": 768
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 10,
+                "Recipe": [
+                    {
+                        "Item": "RABBIT",
+                        "Amount": 960
+                    },
+                    {
+                        "Item": "ENCHANTED_RABBIT_FOOT",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_RABBIT_HIDE",
+                        "Amount": 1792
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "RABBIT",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 4,
+                "Enchanted": {
+                    "ENCHANTED_RABBIT": 160
+                }
+            },
+            {
+                "Item": "RABBIT_HIDE",
+                "Amount": 1,
+                "Chance": 0.35,
+                "NPC Price": 5,
+                "Enchanted": {
+                    "ENCHANTED_RABBIT_HIDE": 576
+                }
+            },
+            {
+                "Item": "RABBIT_FOOT",
+                "Amount": 1,
+                "Chance": 0.35,
+                "NPC Price": 5,
+                "Enchanted": {
+                    "ENCHANTED_RABBIT_FOOT": 160
+                }
+            }
+        ],
+        "Family": "Farming",
+        "Mob Spawning": 1,
+        "Name": "Rabbit Minion"
+    },
+    "Red Sand Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 13,
+                "Recipe": [
+                    {
+                        "Item": "SAND:1",
+                        "Amount": 848
+                    },
+                    {
+                        "Item": "ENCHANTED_RED_SAND",
+                        "Amount": 1008
+                    },
+                    {
+                        "Item": "ENCHANTED_RED_SAND_CUBE",
+                        "Amount": 24
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 11,
+                "Recipe": [
+                    {
+                        "Item": "SAND:1",
+                        "Amount": 848
+                    },
+                    {
+                        "Item": "ENCHANTED_RED_SAND",
+                        "Amount": 1008
+                    },
+                    {
+                        "Item": "ENCHANTED_RED_SAND_CUBE",
+                        "Amount": 56
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "SAND:1",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 5,
+                "Enchanted": {
+                    "ENCHANTED_RED_SAND": 160
+                }
+            }
+        ],
+        "Family": "Mining",
+        "Mob Spawning": 0,
+        "Name": "Red Sand Minion"
+    },
+    "Redstone Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 18,
+                "Recipe": [
+                    {
+                        "Item": "REDSTONE",
+                        "Amount": 896
+                    },
+                    {
+                        "Item": "ENCHANTED_REDSTONE",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_RED_SAND_CUBE",
+                        "Amount": 24
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 16,
+                "Recipe": [
+                    {
+                        "Item": "REDSTONE",
+                        "Amount": 896
+                    },
+                    {
+                        "Item": "ENCHANTED_REDSTONE",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_RED_SAND_CUBE",
+                        "Amount": 56
+                    },
+                    {
+                        "Item": "Coins",
+                        "Amount": 2000000
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "REDSTONE",
+                "Amount": 4.5,
+                "Chance": 1.0,
+                "NPC Price": 1,
+                "Enchanted": {
+                    "ENCHANTED_REDSTONE": 160
+                }
+            }
+        ],
+        "Family": "Mining",
+        "Mob Spawning": 0,
+        "Name": "Redstone Minion"
+    },
+    "Revenant Minion": {
+        "Tiers": [
+            {
+                "Tier": 1,
+                "Speed": 29,
+                "Recipe": [
+                    {
+                        "Item": "ENCHANTED_ROTTEN_FLESH",
+                        "Amount": 256
+                    },
+                    {
+                        "Item": "ENCHANTED_DIAMOND",
+                        "Amount": 256
+                    },
+                    {
+                        "Item": "REVENANT_FLESH",
+                        "Amount": 80
+                    }
+                ]
+            },
+            {
+                "Tier": 3,
+                "Speed": 26,
+                "Recipe": [
+                    {
+                        "Item": "ENCHANTED_ROTTEN_FLESH",
+                        "Amount": 256
+                    },
+                    {
+                        "Item": "ENCHANTED_DIAMOND",
+                        "Amount": 256
+                    },
+                    {
+                        "Item": "REVENANT_FLESH",
+                        "Amount": 500
+                    },
+                    {
+                        "Item": "ROTTEN_FLESH",
+                        "Amount": 320
+                    }
+                ]
+            },
+            {
+                "Tier": 5,
+                "Speed": 23,
+                "Recipe": [
+                    {
+                        "Item": "ENCHANTED_ROTTEN_FLESH",
+                        "Amount": 256
+                    },
+                    {
+                        "Item": "ENCHANTED_DIAMOND",
+                        "Amount": 256
+                    },
+                    {
+                        "Item": "REVENANT_FLESH",
+                        "Amount": 948
+                    },
+                    {
+                        "Item": "ROTTEN_FLESH",
+                        "Amount": 1952
+                    },
+                    {
+                        "Item": "REVENANT_VISCERA",
+                        "Amount": 7
+                    }
+                ]
+            },
+            {
+                "Tier": 7,
+                "Speed": 19,
+                "Recipe": [
+                    {
+                        "Item": "ENCHANTED_ROTTEN_FLESH",
+                        "Amount": 280
+                    },
+                    {
+                        "Item": "ENCHANTED_DIAMOND",
+                        "Amount": 256
+                    },
+                    {
+                        "Item": "REVENANT_FLESH",
+                        "Amount": 948
+                    },
+                    {
+                        "Item": "ROTTEN_FLESH",
+                        "Amount": 4096
+                    },
+                    {
+                        "Item": "REVENANT_VISCERA",
+                        "Amount": 49
+                    }
+                ]
+            },
+            {
+                "Tier": 9,
+                "Speed": 14.5,
+                "Recipe": [
+                    {
+                        "Item": "ENCHANTED_ROTTEN_FLESH",
+                        "Amount": 464
+                    },
+                    {
+                        "Item": "ENCHANTED_DIAMOND",
+                        "Amount": 256
+                    },
+                    {
+                        "Item": "REVENANT_FLESH",
+                        "Amount": 948
+                    },
+                    {
+                        "Item": "ROTTEN_FLESH",
+                        "Amount": 6240
+                    },
+                    {
+                        "Item": "REVENANT_VISCERA",
+                        "Amount": 217
+                    }
+                ]
+            },
+            {
+                "Tier": 11,
+                "Speed": 10,
+                "Recipe": [
+                    {
+                        "Item": "ENCHANTED_ROTTEN_FLESH",
+                        "Amount": 1216
+                    },
+                    {
+                        "Item": "ENCHANTED_DIAMOND",
+                        "Amount": 256
+                    },
+                    {
+                        "Item": "REVENANT_FLESH",
+                        "Amount": 948
+                    },
+                    {
+                        "Item": "ROTTEN_FLESH",
+                        "Amount": 8384
+                    },
+                    {
+                        "Item": "REVENANT_VISCERA",
+                        "Amount": 889
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 8,
+                "Recipe": [
+                    {
+                        "Item": "ENCHANTED_ROTTEN_FLESH",
+                        "Amount": 1216
+                    },
+                    {
+                        "Item": "ENCHANTED_DIAMOND",
+                        "Amount": 256
+                    },
+                    {
+                        "Item": "REVENANT_FLESH",
+                        "Amount": 948
+                    },
+                    {
+                        "Item": "ROTTEN_FLESH",
+                        "Amount": 8384
+                    },
+                    {
+                        "Item": "REVENANT_VISCERA",
+                        "Amount": 953
+                    },
+                    {
+                        "Item": "Coins",
+                        "Amount": 2000000
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "ROTTEN_FLESH",
+                "Amount": 3.5,
+                "Chance": 1,
+                "NPC Price": 2,
+                "Enchanted": {
+                    "ENCHANTED_ROTTEN_FLESH": 160
+                }
+            },
+            {
+                "Item": "DIAMOND",
+                "Amount": 1,
+                "Chance": 0.2,
+                "NPC Price": 8,
+                "Enchanted": {
+                    "ENCHANTED_DIAMOND": 160
+                }
+            }
+        ],
+        "Family": "Combat",
+        "Mob Spawning": 1,
+        "Name": "Revenant Minion"
+    },
+    "Sand Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 13,
+                "Recipe": [
+                    {
+                        "Item": "SAND",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_SAND",
+                        "Amount": 1016
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "SAND",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 2,
+                "Enchanted": {
+                    "ENCHANTED_SAND": 160
+                }
+            }
+        ],
+        "Family": "Mining",
+        "Mob Spawning": 0,
+        "Name": "Sand Minion"
+    },
+    "Sheep Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 12,
+                "Recipe": [
+                    {
+                        "Item": "MUTTON",
+                        "Amount": 960
+                    },
+                    {
+                        "Item": "ENCHANTED_MUTTON",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_COOKED_MUTTON",
+                        "Amount": 8
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 9,
+                "Recipe": [
+                    {
+                        "Item": "MUTTON",
+                        "Amount": 960
+                    },
+                    {
+                        "Item": "ENCHANTED_MUTTON",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_COOKED_MUTTON",
+                        "Amount": 24
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "MUTTON",
+                "Amount": 1,
+                "Chance": 1,
+                "NPC Price": 5,
+                "Enchanted": {
+                    "ENCHANTED_MUTTON": 160
+                }
+            },
+            {
+                "Item": "WOOL",
+                "Amount": 1,
+                "Chance": 1,
+                "NPC Price": 2,
+                "Enchanted": {
+                    "ENCHANTED_WOOL": 160
+                }
+            }
+        ],
+        "Family": "Farming",
+        "Mob Spawning": 1,
+        "Name": "Sheep Minion"
+    },
+    "Skeleton Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 13,
+                "Recipe": [
+                    {
+                        "Item": "BONE",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_BONE",
+                        "Amount": 1016
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "BONE",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 2,
+                "Enchanted": {
+                    "ENCHANTED_BONE": 160
+                }
+            }
+        ],
+        "Family": "Combat",
+        "Mob Spawning": 1,
+        "Name": "Skeleton Minion"
+    },
+    "Slime Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 12,
+                "Recipe": [
+                    {
+                        "Item": "SLIME_BALL",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_SLIME_BALL",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_SLIME_BLOCK",
+                        "Amount": 8
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "SLIME_BALL",
+                "Amount": 2,
+                "Chance": 1.0,
+                "NPC Price": 5,
+                "Enchanted": {
+                    "ENCHANTED_SLIME_BALL": 160
+                }
+            }
+        ],
+        "Family": "Combat",
+        "Mob Spawning": 1,
+        "Name": "Slime Minion"
+    },
+    "Snow Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 6.5,
+                "Recipe": [
+                    {
+                        "Item": "SNOW_BLOCK",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_SLIME_BALL",
+                        "Amount": 248
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 5.8,
+                "Recipe": [
+                    {
+                        "Item": "SNOW_BLOCK",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_SLIME_BALL",
+                        "Amount": 1272
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "SNOW_BALL",
+                "Amount": 4,
+                "Chance": 1.0,
+                "NPC Price": 1,
+                "Enchanted": {
+                    "ENCHANTED_SNOW_BLOCK": 640
+                }
+            }
+        ],
+        "Family": "Miscellaneous",
+        "Mob Spawning": 0,
+        "Name": "Snow Minion"
+    },
+    "Spider Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 13,
+                "Recipe": [
+                    {
+                        "Item": "STRING",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_STRING",
+                        "Amount": 1016
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "STRING",
+                "Amount": 1,
+                "Chance": 1,
+                "NPC Price": 3,
+                "Enchanted": {
+                    "ENCHANTED_STRING": 160
+                }
+            },
+            {
+                "Item": "SPIDER_EYE",
+                "Amount": 1,
+                "Chance": 0.5,
+                "NPC Price": 3,
+                "Enchanted": {
+                    "ENCHANTED_SPIDER_EYE": 160
+                }
+            }
+        ],
+        "Family": "Combat",
+        "Mob Spawning": 1,
+        "Name": "Spider Minion"
+    },
+    "Spruce Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 27,
+                "Recipe": [
+                    {
+                        "Item": "LOG:1",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_SPRUCE_LOG",
+                        "Amount": 1016
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "LOG:1",
+                "Amount": 4,
+                "Chance": 1.0,
+                "NPC Price": 2,
+                "Enchanted": {
+                    "ENCHANTED_SPRUCE_LOG": 160
+                }
+            }
+        ],
+        "Family": "Foraging",
+        "Mob Spawning": 0,
+        "Name": "Spruce Minion"
+    },
+    "Sugar Cane Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 12,
+                "Recipe": [
+                    {
+                        "Item": "SUGAR_CANE",
+                        "Amount": 896
+                    },
+                    {
+                        "Item": "ENCHANTED_SUGAR",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_SUGAR_CANE",
+                        "Amount": 24
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 9,
+                "Recipe": [
+                    {
+                        "Item": "SUGAR_CANE",
+                        "Amount": 896
+                    },
+                    {
+                        "Item": "ENCHANTED_SUGAR",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_SUGAR_CANE",
+                        "Amount": 56
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "SUGAR_CANE",
+                "Amount": 3,
+                "Chance": 1.0,
+                "NPC Price": 4,
+                "Enchanted": {
+                    "ENCHANTED_SUGAR": 160
+                }
+            }
+        ],
+        "Family": "Farming",
+        "Mob Spawning": 0,
+        "Name": "Sugar Cane Minion"
+    },
+    "Tarantula Minion": {
+        "Tiers": [
+            {
+                "Tier": 1,
+                "Speed": 29,
+                "Recipe": [
+                    {
+                        "Item": "ENCHANTED_FERMENTED_SPIDER_EYE",
+                        "Amount": 1
+                    },
+                    {
+                        "Item": "TARANTULA_WEB",
+                        "Amount": 80
+                    }
+                ]
+            },
+            {
+                "Tier": 3,
+                "Speed": 26,
+                "Recipe": [
+                    {
+                        "Item": "ENCHANTED_FERMENTED_SPIDER_EYE",
+                        "Amount": 1
+                    },
+                    {
+                        "Item": "TARANTULA_WEB",
+                        "Amount": 500
+                    },
+                    {
+                        "Item": "STRING",
+                        "Amount": 320
+                    }
+                ]
+            },
+            {
+                "Tier": 5,
+                "Speed": 23,
+                "Recipe": [
+                    {
+                        "Item": "ENCHANTED_FERMENTED_SPIDER_EYE",
+                        "Amount": 1
+                    },
+                    {
+                        "Item": "TARANTULA_WEB",
+                        "Amount": 948
+                    },
+                    {
+                        "Item": "STRING",
+                        "Amount": 1952
+                    },
+                    {
+                        "Item": "TARANTULA_SILK",
+                        "Amount": 7
+                    }
+                ]
+            },
+            {
+                "Tier": 7,
+                "Speed": 19,
+                "Recipe": [
+                    {
+                        "Item": "ENCHANTED_FERMENTED_SPIDER_EYE",
+                        "Amount": 1
+                    },
+                    {
+                        "Item": "TARANTULA_WEB",
+                        "Amount": 948
+                    },
+                    {
+                        "Item": "STRING",
+                        "Amount": 4096
+                    },
+                    {
+                        "Item": "TARANTULA_SILK",
+                        "Amount": 49
+                    },
+                    {
+                        "Item": "ENCHANTED_STRING",
+                        "Amount": 24
+                    }
+                ]
+            },
+            {
+                "Tier": 9,
+                "Speed": 14.5,
+                "Recipe": [
+                    {
+                        "Item": "ENCHANTED_FERMENTED_SPIDER_EYE",
+                        "Amount": 1
+                    },
+                    {
+                        "Item": "TARANTULA_WEB",
+                        "Amount": 948
+                    },
+                    {
+                        "Item": "STRING",
+                        "Amount": 6240
+                    },
+                    {
+                        "Item": "TARANTULA_SILK",
+                        "Amount": 217
+                    },
+                    {
+                        "Item": "ENCHANTED_STRING",
+                        "Amount": 208
+                    }
+                ]
+            },
+            {
+                "Tier": 11,
+                "Speed": 10,
+                "Recipe": [
+                    {
+                        "Item": "ENCHANTED_FERMENTED_SPIDER_EYE",
+                        "Amount": 1
+                    },
+                    {
+                        "Item": "TARANTULA_WEB",
+                        "Amount": 948
+                    },
+                    {
+                        "Item": "STRING",
+                        "Amount": 8384
+                    },
+                    {
+                        "Item": "TARANTULA_SILK",
+                        "Amount": 889
+                    },
+                    {
+                        "Item": "ENCHANTED_STRING",
+                        "Amount": 960
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "STRING",
+                "Amount": 3.5,
+                "Chance": 1.0,
+                "NPC Price": 3,
+                "Enchanted": {
+                    "ENCHANTED_STRING": 160
+                }
+            },
+            {
+                "Item": "SPIDER_EYE",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 3,
+                "Enchanted": {
+                    "ENCHANTED_SPIDER_EYE": 160
+                }
+            },
+            {
+                "Item": "IRON_INGOT",
+                "Amount": 1,
+                "Chance": 0.2,
+                "NPC Price": 3,
+                "Enchanted": {
+                    "ENCHANTED_IRON": 160
+                }
+            }
+        ],
+        "Family": "Combat",
+        "Mob Spawning": 1,
+        "Name": "Tarantula Minion"
+    },
+    "Vampire Minion": {
+        "Tiers": [
+            {
+                "Tier": 1,
+                "Speed": 190,
+                "Recipe": [
+                    {
+                        "Item": "SPOOKY_SHARD",
+                        "Amount": 5
+                    },
+                    {
+                        "Item": "PURPLE_CANDY",
+                        "Amount": 64
+                    },
+                    {
+                        "Item": "HEMOVIBE",
+                        "Amount": 80
+                    }
+                ]
+            },
+            {
+                "Tier": 3,
+                "Speed": 175,
+                "Recipe": [
+                    {
+                        "Item": "SPOOKY_SHARD",
+                        "Amount": 5
+                    },
+                    {
+                        "Item": "PURPLE_CANDY",
+                        "Amount": 64
+                    },
+                    {
+                        "Item": "HEMOVIBE",
+                        "Amount": 560
+                    }
+                ]
+            },
+            {
+                "Tier": 5,
+                "Speed": 160,
+                "Recipe": [
+                    {
+                        "Item": "SPOOKY_SHARD",
+                        "Amount": 5
+                    },
+                    {
+                        "Item": "PURPLE_CANDY",
+                        "Amount": 64
+                    },
+                    {
+                        "Item": "HEMOVIBE",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "HEMOGLASS",
+                        "Amount": 8
+                    }
+                ]
+            },
+            {
+                "Tier": 7,
+                "Speed": 140,
+                "Recipe": [
+                    {
+                        "Item": "SPOOKY_SHARD",
+                        "Amount": 5
+                    },
+                    {
+                        "Item": "PURPLE_CANDY",
+                        "Amount": 64
+                    },
+                    {
+                        "Item": "HEMOVIBE",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "HEMOGLASS",
+                        "Amount": 56
+                    }
+                ]
+            },
+            {
+                "Tier": 9,
+                "Speed": 117,
+                "Recipe": [
+                    {
+                        "Item": "SPOOKY_SHARD",
+                        "Amount": 5
+                    },
+                    {
+                        "Item": "PURPLE_CANDY",
+                        "Amount": 64
+                    },
+                    {
+                        "Item": "HEMOVIBE",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "HEMOGLASS",
+                        "Amount": 248
+                    }
+                ]
+            },
+            {
+                "Tier": 11,
+                "Speed": 95,
+                "Recipe": [
+                    {
+                        "Item": "SPOOKY_SHARD",
+                        "Amount": 5
+                    },
+                    {
+                        "Item": "PURPLE_CANDY",
+                        "Amount": 64
+                    },
+                    {
+                        "Item": "HEMOVIBE",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "HEMOGLASS",
+                        "Amount": 1016
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "HEMOVIBE",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 100,
+                "Enchanted": {
+                    "HEMOGLASS": 160
+                }
+            }
+        ],
+        "Family": "Combat",
+        "Mob Spawning": 1,
+        "Name": "Vampire Minion"
+    },
+    "Voidling Minion": {
+        "Tiers": [
+            {
+                "Tier": 1,
+                "Speed": 45,
+                "Recipe": [
+                    {
+                        "Item": "ENDER_PEARL",
+                        "Amount": 64
+                    },
+                    {
+                        "Item": "NULL_SPHERE",
+                        "Amount": 80
+                    }
+                ]
+            },
+            {
+                "Tier": 3,
+                "Speed": 42,
+                "Recipe": [
+                    {
+                        "Item": "ENDER_PEARL",
+                        "Amount": 192
+                    },
+                    {
+                        "Item": "NULL_SPHERE",
+                        "Amount": 500
+                    },
+                    {
+                        "Item": "OBSIDIAN",
+                        "Amount": 80
+                    }
+                ]
+            },
+            {
+                "Tier": 5,
+                "Speed": 39,
+                "Recipe": [
+                    {
+                        "Item": "ENDER_PEARL",
+                        "Amount": 384
+                    },
+                    {
+                        "Item": "ENCHANTED_ENDER_PEARL",
+                        "Amount": 32
+                    },
+                    {
+                        "Item": "OBSIDIAN",
+                        "Amount": 640
+                    },
+                    {
+                        "Item": "NULL_SPHERE",
+                        "Amount": 948
+                    },
+                    {
+                        "Item": "NULL_OVOID",
+                        "Amount": 7
+                    }
+                ]
+            },
+            {
+                "Tier": 7,
+                "Speed": 35,
+                "Recipe": [
+                    {
+                        "Item": "ENDER_PEARL",
+                        "Amount": 576
+                    },
+                    {
+                        "Item": "ENCHANTED_ENDER_PEARL",
+                        "Amount": 208
+                    },
+                    {
+                        "Item": "OBSIDIAN",
+                        "Amount": 1712
+                    },
+                    {
+                        "Item": "ENCHANTED_OBSIDIAN",
+                        "Amount": 8
+                    },
+                    {
+                        "Item": "NULL_SPHERE",
+                        "Amount": 948
+                    },
+                    {
+                        "Item": "NULL_OVOID",
+                        "Amount": 49
+                    }
+                ]
+            },
+            {
+                "Tier": 9,
+                "Speed": 30,
+                "Recipe": [
+                    {
+                        "Item": "ENDER_PEARL",
+                        "Amount": 768
+                    },
+                    {
+                        "Item": "ENCHANTED_ENDER_PEARL",
+                        "Amount": 416
+                    },
+                    {
+                        "Item": "ENCHANTED_EYE_OF_ENDER",
+                        "Amount": 32
+                    },
+                    {
+                        "Item": "OBSIDIAN",
+                        "Amount": 2784
+                    },
+                    {
+                        "Item": "ENCHANTED_OBSIDIAN",
+                        "Amount": 64
+                    },
+                    {
+                        "Item": "NULL_SPHERE",
+                        "Amount": 948
+                    },
+                    {
+                        "Item": "NULL_OVOID",
+                        "Amount": 217
+                    }
+                ]
+            },
+            {
+                "Tier": 11,
+                "Speed": 24,
+                "Recipe": [
+                    {
+                        "Item": "ENDER_PEARL",
+                        "Amount": 960
+                    },
+                    {
+                        "Item": "ENCHANTED_ENDER_PEARL",
+                        "Amount": 624
+                    },
+                    {
+                        "Item": "ENCHANTED_EYE_OF_ENDER",
+                        "Amount": 208
+                    },
+                    {
+                        "Item": "OBSIDIAN",
+                        "Amount": 3856
+                    },
+                    {
+                        "Item": "ENCHANTED_OBSIDIAN",
+                        "Amount": 312
+                    },
+                    {
+                        "Item": "NULL_SPHERE",
+                        "Amount": 948
+                    },
+                    {
+                        "Item": "NULL_OVOID",
+                        "Amount": 889
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "OBSIDIAN",
+                "Amount": 2.5,
+                "Chance": 1.0,
+                "NPC Price": 7,
+                "Enchanted": {
+                    "ENCHANTED_OBSIDIAN": 160
+                }
+            },
+            {
+                "Item": "QUARTZ",
+                "Amount": 1,
+                "Chance": 0.4,
+                "NPC Price": 4,
+                "Enchanted": {
+                    "ENCHANTED_QUARTZ": 160
+                }
+            },
+            {
+                "Item": "ENCHANTED_ENDER_PEARL",
+                "Amount": 1,
+                "Chance": 0.000625,
+                "NPC Price": 140,
+                "Enchanted": {
+                    "ENCHANTED_ENDER_PEARL": 1
+                }
+            }
+        ],
+        "Family": "Combat",
+        "Mob Spawning": 1,
+        "Name": "Voidling Minion"
+    },
+    "Wheat Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 8,
+                "Recipe": [
+                    {
+                        "Item": "WHEAT",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_WHEAT",
+                        "Amount": 1016
+                    }
+                ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 7
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "WHEAT",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 6,
+                "Enchanted": {
+                    "ENCHANTED_WHEAT": 160
+                }
+            },
+            {
+                "Item": "SEEDS",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 3,
+                "Enchanted": {
+                    "ENCHANTED_SEEDS": 160
+                }
+            }
+        ],
+        "Family": "Farming",
+        "Mob Spawning": 0,
+        "Name": "Wheat Minion"
+    },
+    "Zombie Minion": {
+        "Tiers": [
+            {
+                "Tier": 11,
+                "Speed": 13,
+                "Recipe": [
+                    {
+                        "Item": "ROTTEN_FLESH",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_ROTTEN_FLESH",
+                        "Amount": 1016
+                    }
+                ]
+            }
+        ],
+        "Drops": [
+            {
+                "Item": "ROTTEN_FLESH",
+                "Amount": 1,
+                "Chance": 1.0,
+                "NPC Price": 2,
+                "Enchanted": {
+                    "ENCHANTED_ROTTEN_FLESH": 160
+                }
+            },
+            {
+                "Item": "CARROT_ITEM",
+                "Amount": 1,
+                "Chance": 0.01,
+                "NPC Price": 3,
+                "Enchanted": {
+                    "ENCHANTED_CARROT": 160
+                }
+            },
+            {
+                "Item": "POTATO_ITEM",
+                "Amount": 1,
+                "Chance": 0.01,
+                "NPC Price": 3,
+                "Enchanted": {
+                    "ENCHANTED_POTATO": 160
+                }
+            },
+            {
+                "Item": "POISONOUS_POTATO",
+                "Amount": 1,
+                "Chance": 0.02,
+                "NPC Price": 10,
+                "Enchanted": {
+                    "ENCHANTED_POISONOUS_POTATO": 160
+                }
+            }
+        ],
+        "Family": "Combat",
+        "Mob Spawning": 1,
+        "Name": "Zombie Minion"
+    }
+}
