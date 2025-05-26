@@ -51,6 +51,24 @@
         "Condition": {
             "Family": "Combat"
         },
+        "Recipe": [
+            {
+                "Item": "FLAMES",
+                "Amount": 16
+            },
+            {
+                "Item": "ENCHANTED_SULPHUR_CUBE",
+                "Amount": 2
+            },
+            {
+                "Item": "ENCHANTED_RED_SAND_CUBE",
+                "Amount": 2
+            },
+            {
+                "Item": "PLASMA_BUCKET",
+                "Amount": 1
+            }
+        ],
         "Speed": 0.4, 
         "Drops": 1,
         "Duration": -1,
