@@ -71,9 +71,9 @@ def fetch_and_process_data():
 
     # Apply number formatting
     def format_cost(value):
-        return f"{value / 1000000:.1f}M"  # For millions
+        return f"{round(value / 1000000, 1)}M"  # For millions
     def format_profit(value):
-        return f"{value / 1000:.1f}K"  # For thousands
+        return f"{round(value / 1000, 1)}K"  # For thousands
 
 
     df['Daily Coins'] = df['Daily Coins'].apply(format_profit)
