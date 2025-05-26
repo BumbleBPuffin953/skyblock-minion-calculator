@@ -71,8 +71,8 @@ df = fetch_and_process_data()
 minion_filter = st.multiselect("Filter Minions", options=df['Minion'].unique())
 fuel_filter = st.multiselect("Filter Fuel", options=df['Fuel'].unique())
 
-cost_range = st.selectbox(
-    "Craft Cost Range",
+cost_ranges = st.multiselect(
+    "Select one or more Craft Cost Ranges",
     ["All", "< 2M", "2M - 10M", "10M - 50M", "50M+"]
 )
 
@@ -81,13 +81,18 @@ filtered_df = df[
     ((df['Fuel'].isin(fuel_filter)) | (len(fuel_filter) == 0))
 ]
 
-if cost_range == "< 2M":
-    filtered_df = filtered_df[filtered_df["Craft Cost"] < 2_000_000]
-elif cost_range == "2M - 10M":
-    filtered_df = filtered_df[(filtered_df["Craft Cost"] >= 2_000_000) & (filtered_df["Craft Cost"] < 10_000_000)]
-elif cost_range == "10M - 50M":
-    filtered_df = filtered_df[(filtered_df["Craft Cost"] >= 10_000_000) & (filtered_df["Craft Cost"] < 50_000_000)]
-elif cost_range == "50M+":
-    filtered_df = filtered_df[filtered_df["Craft Cost"] >= 50_000_000]
+if cost_ranges:
+    cost_filtered = pd.DataFrame()
+
+    if "< 2M" in cost_ranges:
+        cost_filtered = pd.concat([cost_filtered, filtered_df[filtered_df["Craft Cost"] < 2_000_000]])
+    if "2M - 10M" in cost_ranges:
+        cost_filtered = pd.concat([cost_filtered, filtered_df[(filtered_df["Craft Cost"] >= 2_000_000) & (filtered_df["Craft Cost"] < 10_000_000)]])
+    if "10M - 50M" in cost_ranges:
+        cost_filtered = pd.concat([cost_filtered, filtered_df[(filtered_df["Craft Cost"] >= 10_000_000) & (filtered_df["Craft Cost"] < 50_000_000)]])
+    if "50M+" in cost_ranges:
+        cost_filtered = pd.concat([cost_filtered, filtered_df[filtered_df["Craft Cost"] >= 50_000_000]])
+
+    filtered_df = cost_filtered.drop_duplicates()
 
 st.dataframe(filtered_df)
