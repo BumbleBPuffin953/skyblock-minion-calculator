@@ -68,7 +68,17 @@ def fetch_and_process_data():
 
     # Sort by Daily Coins descending
     df = df.sort_values(by=['Minion', 'Fuel', 'Upgrade 1', 'Upgrade 2'], ascending=[True, True, True, True])
+
+    # Apply number formatting
+    def format_number(value):
+        return f"{value / 1_000_000:.1f}M"  # For millions
+
+    df['Daily Coins'] = df['Daily Coins'].apply(format_number)
+    df['Craft Cost'] = df['Craft Cost'].apply(format_number)
+
     return df
+
+st.set_page_config(layout="wide")
 
 # Streamlit UI
 st.title("Skyblock Minion Calculator")
@@ -114,13 +124,13 @@ if cost_ranges:
     cost_filtered = pd.DataFrame()
 
     if "< 2M" in cost_ranges:
-        cost_filtered = pd.concat([cost_filtered, filtered_df[filtered_df["Craft Cost"] < 2_000_000]])
+        cost_filtered = pd.concat([cost_filtered, filtered_df[filtered_df["Craft Cost"] < 2]])
     if "2M - 10M" in cost_ranges:
-        cost_filtered = pd.concat([cost_filtered, filtered_df[(filtered_df["Craft Cost"] >= 2_000_000) & (filtered_df["Craft Cost"] < 10_000_000)]])
+        cost_filtered = pd.concat([cost_filtered, filtered_df[(filtered_df["Craft Cost"] >= 2) & (filtered_df["Craft Cost"] < 10)]])
     if "10M - 50M" in cost_ranges:
-        cost_filtered = pd.concat([cost_filtered, filtered_df[(filtered_df["Craft Cost"] >= 10_000_000) & (filtered_df["Craft Cost"] < 50_000_000)]])
+        cost_filtered = pd.concat([cost_filtered, filtered_df[(filtered_df["Craft Cost"] >= 10) & (filtered_df["Craft Cost"] < 50)]])
     if "50M+" in cost_ranges:
-        cost_filtered = pd.concat([cost_filtered, filtered_df[filtered_df["Craft Cost"] >= 50_000_000]])
+        cost_filtered = pd.concat([cost_filtered, filtered_df[filtered_df["Craft Cost"] >= 50]])
 
     filtered_df = cost_filtered.drop_duplicates()
 
