@@ -71,10 +71,6 @@
         "Name": "Corrupt Soil",
         "Dupe": false
     },
-    "SUPER_COMPACTOR_3000": {
-        "Name": "Super Compactor",
-        "Dupe": false
-    },
     "SOULFLOW_ENGINE": {
         "Drops": [
             {
@@ -125,6 +121,10 @@
             }
         ],
         "Name": "Enchanted Egg",
+        "Dupe": false
+    },
+    "SUPER_COMPACTOR_3000": {
+        "Name": "Super Compactor",
         "Dupe": false
     }
 }
