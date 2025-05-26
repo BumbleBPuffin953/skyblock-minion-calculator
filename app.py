@@ -59,7 +59,7 @@ def fetch_and_process_data():
     df = pd.DataFrame(rows, columns=["Minion", "Tier", "Fuel", "Upgrade 1", "Upgrade 2", "Daily Coins", "Craft Cost"])
 
     # Sort by Daily Coins descending
-    df = df.sort_values(by="Minion", ascending=True)
+    df = df.sort_values(by=['name', 'fuel', 'upgrade1', 'upgrade2'], ascending=[True, True, True, True])
     return df
 
 # Streamlit UI
