@@ -4,6 +4,7 @@ import json
 import copy
 import requests
 import csv
+from datetime import datetime
 from functions import minion_processing 
 
 @st.cache_data(ttl=3600)
@@ -70,6 +71,22 @@ def fetch_and_process_data():
 
 # Streamlit UI
 st.title("Skyblock Minion Calculator")
+
+# Initialize a session state variable to store the last updated timestamp
+if 'last_updated' not in st.session_state:
+    st.session_state.last_updated = datetime.now()
+
+# Add a button to trigger manual reload
+reload_button = st.button('Reload Data')
+
+if reload_button:
+    # Clear the cache when the button is pressed
+    st.cache_data.clear()
+    st.session_state.last_updated = datetime.now()  # Update the timestamp
+    st.experimental_rerun()
+
+# Display last updated timestamp
+st.sidebar.write(f"Last Updated: {st.session_state.last_updated.strftime('%Y-%m-%d %H:%M:%S')}")
 
 df = fetch_and_process_data()
 
