@@ -70,11 +70,14 @@ def fetch_and_process_data():
     df = df.sort_values(by=['Minion', 'Fuel', 'Upgrade 1', 'Upgrade 2'], ascending=[True, True, True, True])
 
     # Apply number formatting
-    def format_number(value):
+    def format_cost(value):
         return f"{value / 1_000_000:.1f}M"  # For millions
+    def format_profit(value):
+        return f"{value / 1_000:.1f}K"  # For thousands
 
-    df['Daily Coins'] = df['Daily Coins'].apply(format_number)
-    df['Craft Cost'] = df['Craft Cost'].apply(format_number)
+
+    df['Daily Coins'] = df['Daily Coins'].apply(format_cost)
+    df['Craft Cost'] = df['Craft Cost'].apply(format_profit)
 
     return df
 
