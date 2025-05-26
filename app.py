@@ -70,14 +70,16 @@ def fetch_and_process_data():
     df = df.sort_values(by=['Minion', 'Fuel', 'Upgrade 1', 'Upgrade 2'], ascending=[True, True, True, True])
 
     # Apply number formatting
-    def format_cost(value):
-        return f"{round(value / 1000000, 1)}M"  # For millions
-    def format_profit(value):
-        return f"{round(value / 1000, 1)}K"  # For thousands
+    def format_number(value):
+        if value >= 1_000_000:
+            return f"{value / 1_000_000:.1f}M"  # For millions
+        elif value >= 1_000:
+            return f"{value / 1_000:.1f}k"  # For thousands
+        else:
+            return str(value)  # No formatting for small numbers
 
-
-    #df['Daily Coins'] = df['Daily Coins'].apply(format_profit)
-    #df['Craft Cost'] = df['Craft Cost'].apply(format_cost)
+    df['Daily Coins'] = df['Daily Coins'].apply(format_number)
+    df['Craft Cost'] = df['Craft Cost'].apply(format_number)
 
     return df
 
@@ -127,13 +129,13 @@ if cost_ranges:
     cost_filtered = pd.DataFrame()
 
     if "< 2M" in cost_ranges:
-        cost_filtered = pd.concat([cost_filtered, filtered_df[filtered_df["Craft Cost"] < 2]])
+        cost_filtered = pd.concat([cost_filtered, filtered_df[filtered_df["Craft Cost"] < 2_000_000]])
     if "2M - 10M" in cost_ranges:
-        cost_filtered = pd.concat([cost_filtered, filtered_df[(filtered_df["Craft Cost"] >= 2) & (filtered_df["Craft Cost"] < 10)]])
+        cost_filtered = pd.concat([cost_filtered, filtered_df[(filtered_df["Craft Cost"] >= 2_000_000) & (filtered_df["Craft Cost"] < 10_000_000)]])
     if "10M - 50M" in cost_ranges:
-        cost_filtered = pd.concat([cost_filtered, filtered_df[(filtered_df["Craft Cost"] >= 10) & (filtered_df["Craft Cost"] < 50)]])
+        cost_filtered = pd.concat([cost_filtered, filtered_df[(filtered_df["Craft Cost"] >= 10_000_000) & (filtered_df["Craft Cost"] < 50_000_000)]])
     if "50M+" in cost_ranges:
-        cost_filtered = pd.concat([cost_filtered, filtered_df[filtered_df["Craft Cost"] >= 50]])
+        cost_filtered = pd.concat([cost_filtered, filtered_df[filtered_df["Craft Cost"] >= 50_000_000]])
 
     filtered_df = cost_filtered.drop_duplicates()
 
