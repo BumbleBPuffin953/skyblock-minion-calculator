@@ -71,6 +71,9 @@ df = fetch_and_process_data()
 minion_filter = st.multiselect("Filter Minions", options=df['Minion'].unique())
 fuel_filter = st.multiselect("Filter Fuel", options=df['Fuel'].unique())
 
+all_upgrades = pd.unique(df[['Upgrade 1', 'Upgrade 2']].values.ravel('K'))
+upgrade_filter = st.multiselect("Filter Upgrades", options=all_upgrades)
+
 cost_ranges = st.multiselect(
     "Select one or more Craft Cost Ranges",
     ["All", "< 2M", "2M - 10M", "10M - 50M", "50M+"]
@@ -78,7 +81,12 @@ cost_ranges = st.multiselect(
 
 filtered_df = df[
     ((df['Minion'].isin(minion_filter)) | (len(minion_filter) == 0)) &
-    ((df['Fuel'].isin(fuel_filter)) | (len(fuel_filter) == 0))
+    ((df['Fuel'].isin(fuel_filter)) | (len(fuel_filter) == 0)) &
+    (
+        (df['Upgrade 1'].isin(upgrade_filter)) |
+        (df['Upgrade 2'].isin(upgrade_filter)) |
+        (len(upgrade_filter) == 0)
+    )
 ]
 
 if cost_ranges:
