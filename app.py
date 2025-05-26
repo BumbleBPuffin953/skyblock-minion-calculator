@@ -83,12 +83,14 @@ if reload_button:
     # Clear the cache when the button is pressed
     st.cache_data.clear()
     st.session_state.last_updated = datetime.now()  # Update the timestamp
-    st.experimental_rerun()
+    st.experimental_rerun()  # Trigger the app to rerun and refresh the data
 
-# Display last updated timestamp
+# Display the last updated timestamp
 st.sidebar.write(f"Last Updated: {st.session_state.last_updated.strftime('%Y-%m-%d %H:%M:%S')}")
 
+# Fetch and process data after the reload button has been clicked or app is loaded
 df = fetch_and_process_data()
+
 
 # Filters
 minion_filter = st.multiselect("Filter Minions", options=df['Minion'].unique())
