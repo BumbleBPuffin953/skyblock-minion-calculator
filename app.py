@@ -83,7 +83,9 @@ if reload_button:
     # Clear the cache when the button is pressed
     st.cache_data.clear()
     st.session_state.last_updated = datetime.now()  # Update the timestamp
-    st.experimental_rerun()  # Trigger the app to rerun and refresh the data
+    
+    # Rerun only after cache is cleared and updated
+    st.experimental_rerun()
 
 # Display the last updated timestamp
 st.sidebar.write(f"Last Updated: {st.session_state.last_updated.strftime('%Y-%m-%d %H:%M:%S')}")
