@@ -76,23 +76,11 @@ st.title("Skyblock Minion Calculator")
 if 'last_updated' not in st.session_state:
     st.session_state.last_updated = datetime.now()
 
-# Add a button to trigger manual reload
-reload_button = st.button('Reload Data')
-
-if reload_button:
-    # Clear the cache when the button is pressed
-    st.cache_data.clear()
-    st.session_state.last_updated = datetime.now()  # Update the timestamp
-    
-    # Rerun only after cache is cleared and updated
-    st.experimental_rerun()
-
-# Display the last updated timestamp
-st.sidebar.write(f"Last Updated: {st.session_state.last_updated.strftime('%Y-%m-%d %H:%M:%S')}")
+# Display the last updated timestamp underneath the title
+st.markdown(f"**Last Updated:** {st.session_state.last_updated.strftime('%Y-%m-%d %H:%M:%S')}")
 
 # Fetch and process data after the reload button has been clicked or app is loaded
 df = fetch_and_process_data()
-
 
 # Filters
 minion_filter = st.multiselect("Filter Minions", options=df['Minion'].unique())
