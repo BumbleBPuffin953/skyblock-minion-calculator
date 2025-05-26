@@ -68,19 +68,6 @@ def fetch_and_process_data():
 
     # Sort by Daily Coins descending
     df = df.sort_values(by=['Minion', 'Fuel', 'Upgrade 1', 'Upgrade 2'], ascending=[True, True, True, True])
-
-    # Apply number formatting
-    def format_number(value):
-        if value >= 1_000_000:
-            return f"{value / 1_000_000:.1f}M"  # For millions
-        elif value >= 1_000:
-            return f"{value / 1_000:.1f}k"  # For thousands
-        else:
-            return str(value)  # No formatting for small numbers
-
-    df['Daily Coins'] = df['Daily Coins'].apply(format_number)
-    df['Craft Cost'] = df['Craft Cost'].apply(format_number)
-
     return df
 
 st.set_page_config(layout="wide")
