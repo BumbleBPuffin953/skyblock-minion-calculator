@@ -68,8 +68,8 @@ st.title("Skyblock Minion Calculator")
 df = fetch_and_process_data()
 
 # Filters
-minion_filter = st.multiselect("Filter Minions", options=df['Minion'].unique(), default=df['Minion'].unique())
-fuel_filter = st.multiselect("Filter Fuel", options=df['Fuel'].unique(), default=df['Fuel'].unique())
+minion_filter = st.multiselect("Filter Minions", options=df['Minion'].unique())
+fuel_filter = st.multiselect("Filter Fuel", options=df['Fuel'].unique())
 
 min_cost, max_cost = st.slider("Craft Cost Range", 
                                              float(df['Craft Cost'].min()), 
@@ -77,8 +77,8 @@ min_cost, max_cost = st.slider("Craft Cost Range",
                                              (float(df['Craft Cost'].min()), float(df['Craft Cost'].max())))
 
 filtered_df = df[
-    (df['Minion'].isin(minion_filter)) &
-    (df['Fuel'].isin(fuel_filter)) &
+    ((df['Minion'].isin(minion_filter)) | (len(minion_filter) == 0)) &
+    ((df['Fuel'].isin(fuel_filter)) | (len(fuel_filter) == 0)) &
     (df['Craft Cost'] >= min_cost) &
     (df['Craft Cost'] <= max_cost)
 ]
