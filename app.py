@@ -76,8 +76,8 @@ def fetch_and_process_data():
         return f"{round(value / 1000, 1)}K"  # For thousands
 
 
-    df['Daily Coins'] = df['Daily Coins'].apply(format_profit)
-    df['Craft Cost'] = df['Craft Cost'].apply(format_cost)
+    #df['Daily Coins'] = df['Daily Coins'].apply(format_profit)
+    #df['Craft Cost'] = df['Craft Cost'].apply(format_cost)
 
     return df
 
