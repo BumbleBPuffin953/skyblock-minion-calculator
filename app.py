@@ -42,8 +42,7 @@ def fetch_and_process_data():
         if recipe:
             fuels[name]['Cost'] = 0
             for item in recipe:
-                print(item)
-                fuels[name]['Cost'] += bazaar_cache[item['Item']] * item['Amount']
+                fuels[name]['Cost'] += bazaar_cache[item['Item']].get('Instant Sell',0) * item['Amount']
         else:
             fuels[name]['Daily Cost'] = 0 if fuel['Duration'] == -1 else 86400 / fuel['Duration'] * bazaar_cache.get(name, {}).get('Instant Sell', 0)
             fuels[name]['Cost'] = bazaar_cache.get(name, {}).get('Instant Sell', 0) if fuel['Duration'] == -1 else 86400 / fuel['Duration'] * bazaar_cache.get(name, {}).get('Instant Sell', 0)
