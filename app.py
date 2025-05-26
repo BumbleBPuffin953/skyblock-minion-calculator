@@ -71,16 +71,16 @@ df = fetch_and_process_data()
 minion_filter = st.multiselect("Filter Minions", options=df['Minion'].unique(), default=df['Minion'].unique())
 fuel_filter = st.multiselect("Filter Fuel", options=df['Fuel'].unique(), default=df['Fuel'].unique())
 
-min_daily_coins, max_daily_coins = st.slider("Daily Coins Range", 
-                                             float(df['Daily Coins'].min()), 
-                                             float(df['Daily Coins'].max()), 
-                                             (float(df['Daily Coins'].min()), float(df['Daily Coins'].max())))
+min_cost, max_cost = st.slider("Craft Cost Range", 
+                                             float(df['Craft Cost'].min()), 
+                                             float(df['Craft Cost'].max()), 
+                                             (float(df['Craft Cost'].min()), float(df['Craft Cost'].max())))
 
 filtered_df = df[
     (df['Minion'].isin(minion_filter)) &
     (df['Fuel'].isin(fuel_filter)) &
-    (df['Daily Coins'] >= min_daily_coins) &
-    (df['Daily Coins'] <= max_daily_coins)
+    (df['Craft Cost'] >= min_cost) &
+    (df['Craft Cost'] <= max_cost)
 ]
 
 st.dataframe(filtered_df)
