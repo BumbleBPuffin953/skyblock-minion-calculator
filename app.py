@@ -129,5 +129,12 @@ if cost_ranges:
 
     filtered_df = cost_filtered.drop_duplicates()
 
+filtered_df_display = filtered_df.copy()
+filtered_df_display["Daily Coins (K)"] = (filtered_df["Daily Coins"] / 1_000).map("{:,.1f}K".format)
+filtered_df_display["Craft Cost (M)"] = (filtered_df["Craft Cost"] / 1_000_000).map("{:,.2f}M".format)
+
+# Drop the unformatted numeric columns if you don't want to show them
+filtered_df_display = filtered_df_display.drop(columns=["Daily Coins", "Craft Cost"])
+
 # Display the updated DataFrame
-st.dataframe(filtered_df)
+st.dataframe(filtered_df_display)
