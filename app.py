@@ -1,12 +1,13 @@
 from functions import minion_processing
 
 import streamlit as st
+from streamlit.column_config import NumberColumn
+
 import pandas as pd
 import json
 import copy
 import requests
 from datetime import datetime
-import pytz 
 
 @st.cache_data(ttl=3600)
 def fetch_and_process_data():
@@ -129,12 +130,19 @@ if cost_ranges:
 
     filtered_df = cost_filtered.drop_duplicates()
 
-filtered_df_display = filtered_df.copy()
-filtered_df_display["Daily Coins (K)"] = (filtered_df["Daily Coins"] / 1_000).map("{:,.1f}K".format)
-filtered_df_display["Craft Cost (M)"] = (filtered_df["Craft Cost"] / 1_000_000).map("{:,.2f}M".format)
-
-# Drop the unformatted numeric columns if you don't want to show them
-filtered_df_display = filtered_df_display.drop(columns=["Daily Coins", "Craft Cost"])
-
-# Display the updated DataFrame
-st.dataframe(filtered_df_display)
+st.dataframe(
+    filtered_df,
+    column_config={
+        "Daily Coins": NumberColumn(
+            "Daily Coins (K)",  # Display label
+            format="%.1fK",     # Format like 1.2K
+            help="Daily profit in thousands of coins"
+        ),
+        "Craft Cost": NumberColumn(
+            "Craft Cost (M)",
+            format="%.2fM",     # Format like 1.23M
+            help="Cost to craft this minion tier, in millions"
+        ),
+    },
+    use_container_width=True
+)
