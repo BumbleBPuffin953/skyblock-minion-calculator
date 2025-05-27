@@ -123,15 +123,19 @@
         "Name": "Enchanted Egg",
         "Dupe": false
     },
-    "SUPER_COMPACTOR_3000": {
-        "Name": "Super Compactor",
-        "Dupe": false
-    },
     "FLINT_SHOVEL": {
         "Condition": {
             "Name": "Gravel Minion"
         },
         "Name": "Flint Shovel",
+        "Dupe": false
+    },
+    "SUPER_COMPACTOR_3000": {
+        "Name": "Super Compactor",
+        "Dupe": false
+    },
+    "DWARVEN_COMPACTOR": {
+        "Name": "Super Compactor",
         "Dupe": false
     }
 }
