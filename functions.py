@@ -170,7 +170,7 @@ def minion_processing(minions, fuels, upgrades,bazaar_cache):
                     flags = {
                         "Fuel": fuel,
                         "Upgrade 1": up1,
-                        "Upgrade 2": {}
+                        "Upgrade 2": {"FLINT_SHOVEL": {"Name": "Flint Shovel"}}
                     }
 
                 elif minion['Name'] in ['Iron Minion', 'Gold Minion', 'Cactus Minion']: 
