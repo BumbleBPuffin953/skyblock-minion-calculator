@@ -130,8 +130,14 @@ if cost_ranges:
 
     filtered_df = cost_filtered.drop_duplicates()
 
+df_display = filtered_df.copy()
+
+# Scale values
+df_display["Daily Coins"] = df_display["Daily Coins"] / 1_000       # Now in thousands
+df_display["Craft Cost"] = df_display["Craft Cost"] / 1_000_000 
+
 st.dataframe(
-    filtered_df,
+    df_display,
     column_config={
         "Daily Coins": NumberColumn(
             "Daily Coins (K)",  # Display label
