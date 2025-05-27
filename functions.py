@@ -161,31 +161,24 @@ def minion_processing(minions, fuels, upgrades,bazaar_cache):
                 continue
 
             for (key1, up1), (key2, up2) in itertools.combinations_with_replacement(upgrade_items, 2):
+                if minion['Name'] == "Gravel Minion":
+                    key2 = "FLINT_SHOVEL"
+                    up2 = upgrades['FLINT_SHOVEL']
+
+                if minion['Name'] in ['Iron Minion', 'Gold Minion', 'Cactus Minion']: 
+                    key2 = "SUPER_COMPACTOR_3000"
+                    up2 = upgrades['SUPER_COMPACTOR_3000']
+
+                flags = {
+                    "Fuel": fuel,
+                    "Upgrade 1": up1,
+                    "Upgrade 2": up2
+                }
+
                 if key1 == key2 and not up1.get("Dupe", False):
                     continue
                 if not all(is_compatible(minion, u) for u in (up1, up2)):
                     continue
-                
-                if minion['Name'] == "Gravel Minion":
-                    flags = {
-                        "Fuel": fuel,
-                        "Upgrade 1": up1,
-                        "Upgrade 2": upgrades['FLINT_SHOVEL']
-                    }
-
-                elif minion['Name'] in ['Iron Minion', 'Gold Minion', 'Cactus Minion']: 
-                    flags = {
-                        "Fuel": fuel,
-                        "Upgrade 1": up1,
-                        "Upgrade 2": upgrades['SUPER_COMPACTOR_3000']
-                    }
-
-                else:
-                    flags = {
-                        "Fuel": fuel,
-                        "Upgrade 1": up1,
-                        "Upgrade 2": up2
-                    }
 
                 bazaar = True if up1.get("Name") == "Super Compactor" or up2.get("Name") == "Super Compactor" else False
                 combination,tiers = calculate_profit(copy.deepcopy(minion),flags,bazaar,bazaar_cache)
