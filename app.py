@@ -102,14 +102,17 @@ cost_ranges = st.multiselect(
     ["< 2M", "2M - 10M", "10M - 50M", "50M+"]
 )
 
+if len(upgrade_filter) == 0:
+    upgrade_mask = pd.Series([True] * len(df))
+elif len(upgrade_filter) == 1:
+    upgrade_mask = (df['Upgrade 1'].isin(upgrade_filter)) | (df['Upgrade 2'].isin(upgrade_filter))
+else:
+    upgrade_mask = (df['Upgrade 1'].isin(upgrade_filter)) & (df['Upgrade 2'].isin(upgrade_filter))
+
 filtered_df = df[
-    ((df['Minion'].isin(minion_filter)) | (len(minion_filter) == 0)) &
-    ((df['Fuel'].isin(fuel_filter)) | (len(fuel_filter) == 0)) &
-    (
-        ((df['Upgrade 1'].isin(upgrade_filter)) &
-        (df['Upgrade 2'].isin(upgrade_filter))) |
-        (len(upgrade_filter) == 0)
-    )
+    ((df['Minion'].isin(minion_filter)) | (not minion_filter)) &
+    ((df['Fuel'].isin(fuel_filter)) | (not fuel_filter)) &
+    upgrade_mask
 ]
 
 if cost_ranges:
