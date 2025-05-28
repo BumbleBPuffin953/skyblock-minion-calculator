@@ -52,7 +52,7 @@ start_time = time.time()
 df = create_final_df()
 run_time = time.time() - start_time
 
-new_order = ['Minion', 'Tier', 'Fuel', 'Upgrade 1', 'Upgrade 2', 'Misc Upgrades','Speed Mod', 'Profit', 'Cost']
+new_order = ['Minion','Tier','Fuel','Upgrade 1','Upgrade 2','Misc Upgrades','Profit','Cost']
 print(df)
 df = df[new_order]
 
