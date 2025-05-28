@@ -188,7 +188,7 @@ def minion_processing(minions, fuels, upgrades, bazaar_cache,misc_upgrades):
                     continue
                 if not all(is_compatible(minion, u) for u in (up1, up2)):
                     continue
-                if key1 == "CORRUPT_SOIL" and key2 == 'SUPER_COMPACTOR_3000':
+                if {key1, key2} == {"CORRUPT_SOIL", "SUPER_COMPACTOR_3000"}:
                     continue
 
                 bazaar = True if up1.get("Name") == "Super Compactor" or up2.get("Name") == "Super Compactor" else False
