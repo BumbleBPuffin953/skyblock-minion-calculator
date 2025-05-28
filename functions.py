@@ -235,9 +235,15 @@ def fetch_and_process_data(misc_upgrades={}):
         upgrades[name]['Cost'] = bazaar_cache.get(name, {}).get('Instant Sell', 0)
 
     minion_dict = minion_processing(copy.deepcopy(minions), copy.deepcopy(fuels), copy.deepcopy(upgrades), copy.deepcopy(bazaar_cache),misc_upgrades)
-    family_dict = {minion_name: data.get("Family") for minion_name, data in minions.items()}
+    minion_info = {
+    minion_name: {
+        "Family": data.get("Family"),
+        "Mob Spawning": data.get("Mob Spawning")
+    }
+    for minion_name, data in minions.items()
+}
     
-    return minion_dict,family_dict
+    return minion_dict,minion_info
 
 def create_all_combos(bazaar_cache):
     base_flags = {
@@ -298,8 +304,8 @@ def create_minion_df(minion_data):
             rows.append(row)
     return pd.DataFrame(rows)
 
-def apply_combo(df,combo,effect,family):
-    if "Floating Crystal" in combo and family not in ['Mining','Foraging', 'Farming']:
+def apply_combo(df,combo,effect,minion_info):
+    if "Floating Crystal" in combo and minion_info['Family'] not in ['Mining','Foraging', 'Farming'] or minion_info['Mob Spawning']:
         df['Speed Mod'] += effect.get('Speed') - 0.1
     else:
         df['Speed Mod'] += effect.get('Speed')
@@ -309,9 +315,9 @@ def apply_combo(df,combo,effect,family):
     df.insert(df.columns.get_loc('Upgrade 2') + 1, 'Misc Upgrades', [combo]*len(df))
     return df    
 
-def apply_all_combos(df,all_combos,family):
+def apply_all_combos(df,all_combos,minion_info):
     modified_frame = [
-        apply_combo(df.copy(),combo,effect,family)
+        apply_combo(df.copy(),combo,effect,minion_info)
         for combo,effect in all_combos.items()
     ]
     return pd.concat(modified_frame,ignore_index=True)
