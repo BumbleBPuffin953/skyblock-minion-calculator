@@ -1,7 +1,6 @@
 import math
 import itertools
 import copy
-import pandas as pd
 
 def is_compatible(minion, upgrade):
     """
@@ -155,62 +154,43 @@ def minion_processing(minions, fuels, upgrades, bazaar_cache):
     Returns:
         A nested dict with all of the desireable outputs
     """
-    misc_combinations = generate_misc_combinations()
+    all_combinations = {}
     fuel_list = list(fuels.values())
     upgrade_items = list(upgrades.items())
 
-    misc_results = {}
+    for minion in minions.values():
+        if minion['Name'] not in all_combinations:
+            all_combinations[minion['Name']] = {}
 
-    for misc_upgrade_set in misc_combinations:
-        misc_key = tuple(sorted(misc_upgrade_set.keys()))
-        misc_results[misc_key] = []
+        for fuel in fuel_list:
+            if not is_compatible(minion,fuel):
+                continue
 
-        for minion in minions.values():
-            for fuel in fuel_list:
-                if not is_compatible(minion,fuel):
+            for (key1, up1), (key2, up2) in itertools.combinations_with_replacement(upgrade_items, 2):
+                if minion['Name'] == "Gravel Minion":
+                    key2 = "FLINT_SHOVEL"
+                    up2 = upgrades['FLINT_SHOVEL']
+
+                if minion['Name'] in ['Iron Minion', 'Gold Minion', 'Cactus Minion']: 
+                    key2 = "SUPER_COMPACTOR_3000"
+                    up2 = upgrades['SUPER_COMPACTOR_3000']
+
+                flags = {
+                    "Fuel": fuel,
+                    "Upgrade 1": up1,
+                    "Upgrade 2": up2
+                }
+
+                if key1 == key2 and not up1.get("Dupe", False):
+                    continue
+                if not all(is_compatible(minion, u) for u in (up1, up2)):
                     continue
 
-                for (key1, up1), (key2, up2) in itertools.combinations_with_replacement(upgrade_items,2):
-                    if minion['Name'] == "Gravel Minion":
-                        key2 = "FLINT_SHOVEL"
-                        up2 = upgrades[key2]
-                    if minion['Name'] in ['Iron Minion', 'Gold Minon', 'Cactus Minion']:
-                        key2 = "DWARVEN_COMPACTOR"
-                        up2 = upgrades[key2]
-                    if key1 == key2 and not up1.get('Dupe',False):
-                        continue
-                    if not all(is_compatible(minion,u) for u in (up1,up2)):
-                        continue
-                    
-                    flags = {
-                        "Fuel": fuel,
-                        "Upgrade 1": up1,
-                        "Upgrade 2": up2
-                    }
-                    
-                    bazaar = any(u.get('Name') == "Super Compactor" for u in (up1,up2))
-
-                    combination,tiers = calculate_profit(
-                        copy.deepcopy(minion),
-                        flags,
-                        bazaar,
-                        bazaar_cache,
-                        misc_upgrade_set
-                    )
-
-                    for tier in tiers:
-                        result = {
-                            "Minion": minion['Name'],
-                            "Tier": tier['Tier'],
-                            "Fuel": combination[0],
-                            "Upgrade 1": combination[1],
-                            "Upgrade 2": combination[2],
-                            **{k: v for k, v in tier.items() if k != "Tier"}
-                        }
-                        misc_results[misc_key].append(result)
-        print(misc_key)
-    misc_dfs = {key: pd.DataFrame(rows) for key,rows in misc_results.items()}
-    return misc_dfs
+                bazaar = True if up1.get("Name") == "Super Compactor" or up2.get("Name") == "Super Compactor" else False
+                combination,tiers = calculate_profit(copy.deepcopy(minion),flags,bazaar,bazaar_cache)
+                
+                all_combinations[minion['Name']][combination] = tiers
+    return all_combinations
 
 def generate_misc_combinations():
     """
@@ -223,7 +203,7 @@ def generate_misc_combinations():
     NEW_MISC_UPGRADES = {
         "Floating Crystal": 0.1,
         "Beacon": 0.1,
-        "Power Crystal": 0.01, 
+        "Power Crystal": 0.01,  
         "Infusion": 0.1,
         "Free Will": 0.1,
         "Postcard": 0.05
