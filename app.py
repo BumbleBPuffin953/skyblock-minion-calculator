@@ -111,6 +111,7 @@ if cost_ranges:
 
 filtered_df = filtered_df[filtered_df['Misc Upgrades'] == tuple(sorted(misc_upgrades))]
 filtered_df = filtered_df.drop('Misc Upgrades',axis=1)
+filtered_df = filtered_df.reset_index(drop=True)
 df_display = filtered_df.copy()
 
 # Scale values
