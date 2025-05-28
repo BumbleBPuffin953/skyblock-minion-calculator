@@ -10,7 +10,7 @@ import requests
 from datetime import datetime
 
 @st.cache_data(ttl=3600)
-def fetch_and_process_data(misc_upgrades=0):
+def fetch_and_process_data(misc_upgrades={}):
     # Load your static JSON data
 
     with open("_data.json","r") as file:
@@ -102,10 +102,20 @@ placeholder_misc = st.empty()  # This should appear last visually
 misc_upgrades = placeholder_misc.multiselect(
     "Select one or more miscellaneous upgrade",
     ["None", "Floating Crystal", "Beacon", "Power Crystal", "Infusion", "Free Will", "Postcard"],
-    value=['None']
+    default='None'
 )
 
-df = fetch_and_process_data(sum(misc_upgrades.values()))
+base_flags = {
+    "Floating Crystal": 0.1,
+    "Beacon": 0.1,
+    "Power Crystal": 0.01,
+    "Infusion": 0.1,
+    "Free Will": 0.1,
+    "Postcard": 0.05
+}
+misc_flags = {} if "None" in misc_upgrades else {k: v for k, v in base_flags.items() if k in misc_upgrades}
+
+df = fetch_and_process_data(misc_upgrades)
 
 # Then process other filters (in any order you want in code)
 minion_filter = placeholder_minion.multiselect("Filter Minions", options=df['Minion'].unique())
@@ -120,19 +130,6 @@ cost_ranges = placeholder_cost.multiselect(
     "Select one or more Craft Cost Ranges",
     ["< 2M", "2M - 10M", "10M - 50M", "50M+"]
 )
-
-# Base effect values (excluding Power Crystal because it modifies Beacon only)
-base_flags = {
-    "Floating Crystal": 0.1,
-    "Beacon": 0.1,
-    "Power Crystal": 0.01,
-    "Infusion": 0.1,
-    "Free Will": 0.1,
-    "Postcard": 0.05
-}
-misc_flags = {} if "None" in misc_upgrades else {k: v for k, v in base_flags.items() if k in misc_upgrades}
-
-
 
 if len(upgrade_filter) == 0:
     upgrade_mask = pd.Series([True] * len(df))
