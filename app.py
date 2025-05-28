@@ -114,7 +114,7 @@ base_flags = {
 }
 misc_flags = {} if "None" in misc_upgrades else {k: v for k, v in base_flags.items() if k in misc_upgrades}
 
-df = fetch_and_process_data(misc_upgrades)
+df = fetch_and_process_data(misc_flags)
 
 # Then process other filters (in any order you want in code)
 minion_filter = placeholder_minion.multiselect("Filter Minions", options=df['Minion'].unique())
