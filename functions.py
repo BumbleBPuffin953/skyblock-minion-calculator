@@ -120,7 +120,7 @@ def calculate_profit(minion,flags={},bazaar=False,bazaar_cache={},misc_upgrades=
     apply_all_drop_modifiers(minion, fuel, u1,u2)
     upgrade_drops = [drop for u in (u1,u2) if 'Drops' in u for drop in u['Drops']]
 
-    speed_modifier = fuel.get('Speed',0) + u1.get('Speed',0) + u2.get('Speed',0)
+    speed_modifier = 1 + fuel.get('Speed',0) + u1.get('Speed',0) + u2.get('Speed',0)
     
     base_cpa(minion, bazaar, bazaar_cache)
     upgrade_cpa(minion, upgrade_drops, bazaar, bazaar_cache)
@@ -309,7 +309,7 @@ def apply_combo(df,combo,effect,minion_info):
     else:
         df['Speed Mod'] += effect.get('Speed')
     df['Cost'] += effect.get('Cost')
-    df['Profit'] = df['CPA'] * 86400 / (df['Speed'] / df['Speed Mod'] + df['Flat'])
+    df['Profit'] = df['CPA'] * 86400 / (2 * df['Speed'] / df['Speed Mod']) + df['Flat']
     df = df.drop(columns=['Speed Mod','Speed','CPA','Flat'])
     df.insert(df.columns.get_loc('Upgrade 2') + 1, 'Misc Upgrades', [combo]*len(df))
     return df    
