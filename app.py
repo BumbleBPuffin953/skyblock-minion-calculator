@@ -10,7 +10,7 @@ import requests
 from datetime import datetime
 
 @st.cache_data(ttl=3600)
-def fetch_and_process_data():
+def fetch_and_process_data(misc_upgrades={}):
     # Load your static JSON data
 
     with open("_data.json","r") as file:
@@ -54,7 +54,7 @@ def fetch_and_process_data():
     for name,upgrade in upgrades.items():
         upgrades[name]['Cost'] = bazaar_cache.get(name, {}).get('Instant Sell', 0)
 
-    minion_dict = minion_processing(copy.deepcopy(minions), copy.deepcopy(fuels), copy.deepcopy(upgrades), copy.deepcopy(bazaar_cache))
+    minion_dict = minion_processing(copy.deepcopy(minions), copy.deepcopy(fuels), copy.deepcopy(upgrades), copy.deepcopy(bazaar_cache),misc_upgrades)
 
     rows = []
     for minion, configs in minion_dict.items():
@@ -88,8 +88,10 @@ minutes_since_update = time_diff.total_seconds() / 60  # Convert to minutes
 # Display the time difference (minutes since last update) underneath the title
 st.write(f"{int(minutes_since_update)} minutes since last update")
 
-df_dict = fetch_and_process_data()
+# Fetch and process data after the reload button has been clicked or app is loaded
 
+
+# Filters
 placeholder_minion = st.empty()
 placeholder_fuel = st.empty()
 placeholder_upgrade = st.empty()
@@ -99,7 +101,8 @@ placeholder_misc = st.empty()  # This should appear last visually
 # Process misc_upgrades first in code (because of logic needs)
 misc_upgrades = placeholder_misc.multiselect(
     "Select one or more miscellaneous upgrade",
-    ["Floating Crystal", "Beacon", "Power Crystal", "Infusion", "Free Will", "Postcard"]
+    ["None", "Floating Crystal", "Beacon", "Power Crystal", "Infusion", "Free Will", "Postcard"],
+    default=['None']
 )
 
 base_flags = {
@@ -110,14 +113,9 @@ base_flags = {
     "Free Will": 0.1,
     "Postcard": 0.05
 }
-misc_flags = {
-    k: v for k, v in base_flags.items()
-    if k in misc_upgrades and (k != "Power Crystal" or "Beacon" in misc_upgrades)
-}
+misc_flags = {} if "None" in misc_upgrades else {k: v for k, v in base_flags.items() if k in misc_upgrades}
 
-selected_misc_key = tuple(sorted(misc_flags.keys()))
-
-df = df_dict.get(selected_misc_key)
+df = fetch_and_process_data(misc_upgrades)
 
 # Then process other filters (in any order you want in code)
 minion_filter = placeholder_minion.multiselect("Filter Minions", options=df['Minion'].unique())
