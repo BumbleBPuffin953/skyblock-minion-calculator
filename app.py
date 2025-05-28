@@ -10,7 +10,7 @@ import requests
 from datetime import datetime
 
 @st.cache_data(ttl=3600)
-def fetch_and_process_data(misc_upgrades={}):
+def fetch_and_process_data():
     # Load your static JSON data
 
     with open("_data.json","r") as file:
@@ -54,7 +54,7 @@ def fetch_and_process_data(misc_upgrades={}):
     for name,upgrade in upgrades.items():
         upgrades[name]['Cost'] = bazaar_cache.get(name, {}).get('Instant Sell', 0)
 
-    minion_dict = minion_processing(copy.deepcopy(minions), copy.deepcopy(fuels), copy.deepcopy(upgrades), copy.deepcopy(bazaar_cache),misc_upgrades)
+    minion_dict = minion_processing(copy.deepcopy(minions), copy.deepcopy(fuels), copy.deepcopy(upgrades), copy.deepcopy(bazaar_cache))
 
     rows = []
     for minion, configs in minion_dict.items():
