@@ -93,7 +93,7 @@ def upgrade_cpa(minion, udrops, bazaar, bazaar_cache):
             else:
                 minion['CPA'] += drop['Amount'] * drop['Chance'] * drop['NPC Price']
 
-def calculate_profit(minion,flags={},bazaar=False,bazaar_cache={}):
+def calculate_profit(minion,flags={},bazaar=False,bazaar_cache={},misc_upgrades={}):
     """
     Calculates the daily profit of each tier of each minion setup.
 
@@ -116,8 +116,12 @@ def calculate_profit(minion,flags={},bazaar=False,bazaar_cache={}):
     apply_all_drop_modifiers(minion, fuel, u1,u2)
     upgrade_drops = [drop for u in (u1,u2) if 'Drops' in u for drop in u['Drops']]
 
-    #Handles all the speed and drop upgrades from fuel and both upgrade slots
-    speed_modifier = 1 + fuel.get('Speed',0) + u1.get("Speed",0) + u2.get("Speed",0)
+    misc_speed = sum(misc_upgrades.values())
+    #Handles all the speed and drop upgrades from fuel, upgrade slots and miscellaneous upgrades
+    if minion['Family'] not in ["Mining", "Farming", "Foraging"] and "Floating Crystal" in misc_upgrades:
+        misc_speed -= 0.1
+
+    speed_modifier = 1 + fuel.get('Speed',0) + u1.get("Speed",0) + u2.get("Speed",0) + misc_speed
     
     base_cpa(minion, bazaar, bazaar_cache)
     upgrade_cpa(minion, upgrade_drops, bazaar, bazaar_cache)
@@ -135,7 +139,7 @@ def calculate_profit(minion,flags={},bazaar=False,bazaar_cache={}):
         }
         for tier in minion['Tiers']])
 
-def minion_processing(minions, fuels, upgrades,bazaar_cache):
+def minion_processing(minions, fuels, upgrades, bazaar_cache, misc_upgrades):
     """
     Computes profit outcomes for all compatible fuel and upgrade combinations across all minions
 
@@ -181,7 +185,7 @@ def minion_processing(minions, fuels, upgrades,bazaar_cache):
                     continue
 
                 bazaar = True if up1.get("Name") == "Super Compactor" or up2.get("Name") == "Super Compactor" else False
-                combination,tiers = calculate_profit(copy.deepcopy(minion),flags,bazaar,bazaar_cache)
+                combination,tiers = calculate_profit(copy.deepcopy(minion),flags,bazaar,bazaar_cache,misc_upgrades)
                 
                 all_combinations[minion['Name']][combination] = tiers
     return all_combinations
