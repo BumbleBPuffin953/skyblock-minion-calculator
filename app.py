@@ -101,12 +101,8 @@ placeholder_misc = st.empty()  # This should appear last visually
 # Process misc_upgrades first in code (because of logic needs)
 misc_upgrades = placeholder_misc.multiselect(
     "Select one or more miscellaneous upgrade",
-    ["None", "Floating Crystal", "Beacon", "Power Crystal", "Infusion", "Free Will", "Postcard"],
-    default='None'
+    ["Floating Crystal", "Beacon", "Power Crystal", "Infusion", "Free Will", "Postcard"]
 )
-
-if "None" in misc_upgrades and len(misc_upgrades) > 1:
-    misc_upgrades = [x for x in misc_upgrades if x != "None"]
 
 base_flags = {
     "Floating Crystal": 0.1,
@@ -116,7 +112,7 @@ base_flags = {
     "Free Will": 0.1,
     "Postcard": 0.05
 }
-misc_flags = {} if "None" in misc_upgrades else {
+misc_flags = {
     k: v for k, v in base_flags.items()
     if k in misc_upgrades and (k != "Power Crystal" or "Beacon" in misc_upgrades)
 }
