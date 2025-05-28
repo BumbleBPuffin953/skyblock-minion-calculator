@@ -292,13 +292,12 @@ def create_all_combos(bazaar_cache):
 def create_minion_df(minion_data):
     rows = []
     for setup, setup_data in minion_data.items():
-        speed_mod = setup_data['Speed Mod']
         for tier in setup_data['Tiers']:
             row = {
                 'Fuel': setup[0],
                 'Upgrade 1': setup[1],
                 'Upgrade 2': setup[2],
-                'Speed Mod': speed_mod,
+                'Speed Mod': setup_data['Speed Mod'],
                 **tier  # Unpack Tier dictionary (Tier, Speed, CPA, Flat, Cost)
             }
             rows.append(row)
@@ -311,7 +310,7 @@ def apply_combo(df,combo,effect,minion_info):
         df['Speed Mod'] += effect.get('Speed')
     df['Cost'] += effect.get('Cost')
     df['Profit'] = df['CPA'] * 86400 / (df['Speed'] / df['Speed Mod'] + df['Flat'])
-    df = df.drop(columns=['Speed Mod','Speed','CPA','Flat'])
+    df = df.drop(columns=['Speed','CPA','Flat'])
     df.insert(df.columns.get_loc('Upgrade 2') + 1, 'Misc Upgrades', [combo]*len(df))
     return df    
 
