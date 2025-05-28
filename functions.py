@@ -267,7 +267,7 @@ def create_all_combos(bazaar_cache):
             "Cost": bazaar_cache['FREE_WILL']['Instant Sell']
             },
         "Postcard": {
-            "Speed": 0.1,
+            "Speed": 0.05,
             "Cost": requests.get('https://sky.coflnet.com/api/auctions/tag/POSTCARD/active/bin').json()[0]['startingBid']
             }
     }
