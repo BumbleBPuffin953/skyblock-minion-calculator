@@ -88,10 +88,8 @@ minutes_since_update = time_diff.total_seconds() / 60  # Convert to minutes
 # Display the time difference (minutes since last update) underneath the title
 st.write(f"{int(minutes_since_update)} minutes since last update")
 
-# Fetch and process data after the reload button has been clicked or app is loaded
+df_dict = fetch_and_process_data()
 
-
-# Filters
 placeholder_minion = st.empty()
 placeholder_fuel = st.empty()
 placeholder_upgrade = st.empty()
@@ -117,7 +115,9 @@ misc_flags = {
     if k in misc_upgrades and (k != "Power Crystal" or "Beacon" in misc_upgrades)
 }
 
-df = fetch_and_process_data(misc_flags)
+selected_misc_key = tuple(sorted(misc_flags.keys()))
+
+df = df_dict.get(selected_misc_key)
 
 # Then process other filters (in any order you want in code)
 minion_filter = placeholder_minion.multiselect("Filter Minions", options=df['Minion'].unique())
