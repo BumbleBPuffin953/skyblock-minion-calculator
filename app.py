@@ -51,6 +51,10 @@ st.write(f"{int(minutes_since_update)} minutes since last update")
 start_time = time.time()
 df = create_final_df()
 run_time = time.time() - start_time
+
+new_order = ['Minion', 'Tier', 'Fuel', 'Upgrade 1', 'Upgrade 2', 'Misc Upgrades', 'Profit', 'Cost']
+df = df[new_order]
+
 st.write(f"Program took {int(run_time)} seconds to load")
 # Then process other filters (in any order you want in code)
 minion_filter = st.multiselect("Filter Minions", options=df['Minion'].unique())
@@ -68,7 +72,7 @@ cost_ranges = st.multiselect(
 
 misc_upgrades = st.multiselect(
     "Select one or more miscellaneous upgrade",
-    ["Floating Crystal", "Beacon", "Power Crystal", "Infusion", "Free Will", "Postcard"],
+    ["Floating Crystal", "Beacon", "Power Crystal", "Mithril Infusion", "Free Will", "Postcard"],
 )
 
 if len(upgrade_filter) == 0:
@@ -94,21 +98,19 @@ if cost_ranges:
     cost_filtered = pd.DataFrame()
 
     if "< 2M" in cost_ranges:
-        cost_filtered = pd.concat([cost_filtered, filtered_df[filtered_df["Craft Cost"] < 2_000_000]])
+        cost_filtered = pd.concat([cost_filtered, filtered_df[filtered_df["Cost"] < 2_000_000]])
     if "2M - 10M" in cost_ranges:
-        cost_filtered = pd.concat([cost_filtered, filtered_df[(filtered_df["Craft Cost"] >= 2_000_000) & (filtered_df["Craft Cost"] < 10_000_000)]])
+        cost_filtered = pd.concat([cost_filtered, filtered_df[(filtered_df["Cost"] >= 2_000_000) & (filtered_df["Cost"] < 10_000_000)]])
     if "10M - 50M" in cost_ranges:
-        cost_filtered = pd.concat([cost_filtered, filtered_df[(filtered_df["Craft Cost"] >= 10_000_000) & (filtered_df["Craft Cost"] < 50_000_000)]])
+        cost_filtered = pd.concat([cost_filtered, filtered_df[(filtered_df["Cost"] >= 10_000_000) & (filtered_df["Cost"] < 50_000_000)]])
     if "50M+" in cost_ranges:
-        cost_filtered = pd.concat([cost_filtered, filtered_df[filtered_df["Craft Cost"] >= 50_000_000]])
+        cost_filtered = pd.concat([cost_filtered, filtered_df[filtered_df["Cost"] >= 50_000_000]])
 
     filtered_df = cost_filtered.drop_duplicates()
 
-filtered_df = df[df['Misc Upgrades'] == tuple(sorted(misc_upgrades))]
+filtered_df = filtered_df[filtered_df['Misc Upgrades'] == tuple(sorted(misc_upgrades))]
 df_display = filtered_df.copy()
 
-new_order = ['Minion', 'Tier', 'Fuel', 'Upgrade 1', 'Upgrade 2', 'Misc Upgrades', 'Profit', 'Cost']
-df_display = df_display[new_order]
 # Scale values
 df_display["Profit"] = df_display["Profit"] / 1_000       # Now in thousands
 df_display["Cost"] = df_display["Cost"] / 1_000_000 
