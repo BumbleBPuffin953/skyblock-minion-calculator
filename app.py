@@ -10,8 +10,9 @@ import requests
 from datetime import datetime
 
 @st.cache_data(ttl=3600)
-def fetch_and_process_data():
+def fetch_and_process_data(misc_upgrades=0):
     # Load your static JSON data
+
     with open("_data.json","r") as file:
         minions = json.load(file)
 
@@ -53,7 +54,7 @@ def fetch_and_process_data():
     for name,upgrade in upgrades.items():
         upgrades[name]['Cost'] = bazaar_cache.get(name, {}).get('Instant Sell', 0)
 
-    minion_dict = minion_processing(copy.deepcopy(minions), copy.deepcopy(fuels), copy.deepcopy(upgrades), copy.deepcopy(bazaar_cache))
+    minion_dict = minion_processing(copy.deepcopy(minions), copy.deepcopy(fuels), copy.deepcopy(upgrades), copy.deepcopy(bazaar_cache),misc_upgrades)
 
     rows = []
     for minion, configs in minion_dict.items():
@@ -88,20 +89,50 @@ minutes_since_update = time_diff.total_seconds() / 60  # Convert to minutes
 st.write(f"{int(minutes_since_update)} minutes since last update")
 
 # Fetch and process data after the reload button has been clicked or app is loaded
-df = fetch_and_process_data()
+
 
 # Filters
-minion_filter = st.multiselect("Filter Minions", options=df['Minion'].unique())
-fuel_filter = st.multiselect("Filter Fuel", options=df['Fuel'].unique())
+placeholder_minion = st.empty()
+placeholder_fuel = st.empty()
+placeholder_upgrade = st.empty()
+placeholder_cost = st.empty()
+placeholder_misc = st.empty()  # This should appear last visually
+
+# Process misc_upgrades first in code (because of logic needs)
+misc_upgrades = placeholder_misc.multiselect(
+    "Select one or more miscellaneous upgrade",
+    ["None", "Floating Crystal", "Beacon", "Power Crystal", "Infusion", "Free Will", "Postcard"],
+    value=['None']
+)
+
+df = fetch_and_process_data(sum(misc_upgrades.values()))
+
+# Then process other filters (in any order you want in code)
+minion_filter = placeholder_minion.multiselect("Filter Minions", options=df['Minion'].unique())
+fuel_filter = placeholder_fuel.multiselect("Filter Fuel", options=df['Fuel'].unique())
 
 all_upgrades = pd.unique(df[['Upgrade 1', 'Upgrade 2']].values.ravel('K'))
-all_upgrades = sorted([x for x in all_upgrades if pd.notna(x)])  # also remove NaNs if any
-upgrade_filter = st.multiselect("Filter Upgrades", options=all_upgrades)
+all_upgrades = sorted([x for x in all_upgrades if pd.notna(x)])  # remove NaNs
 
-cost_ranges = st.multiselect(
+upgrade_filter = placeholder_upgrade.multiselect("Filter Upgrades", options=all_upgrades)
+
+cost_ranges = placeholder_cost.multiselect(
     "Select one or more Craft Cost Ranges",
     ["< 2M", "2M - 10M", "10M - 50M", "50M+"]
 )
+
+# Base effect values (excluding Power Crystal because it modifies Beacon only)
+base_flags = {
+    "Floating Crystal": 0.1,
+    "Beacon": 0.1,
+    "Power Crystal": 0.01,
+    "Infusion": 0.1,
+    "Free Will": 0.1,
+    "Postcard": 0.05
+}
+misc_flags = {} if "None" in misc_upgrades else {k: v for k, v in base_flags.items() if k in misc_upgrades}
+
+
 
 if len(upgrade_filter) == 0:
     upgrade_mask = pd.Series([True] * len(df))
