@@ -117,6 +117,7 @@ def calculate_profit(minion,flags={},bazaar=False,bazaar_cache={},misc_upgrades=
     u2 = flags.get('Upgrade 2',{})
     
     upgrade_cost = fuel.get('Cost',0) + u1.get('Cost',0) + u2.get('Cost',0)
+    daily_cost = fuel.get('Daily Cost',0)
     apply_all_drop_modifiers(minion, fuel, u1,u2)
     upgrade_drops = [drop for u in (u1,u2) if 'Drops' in u for drop in u['Drops']]
 
@@ -135,7 +136,8 @@ def calculate_profit(minion,flags={},bazaar=False,bazaar_cache={},misc_upgrades=
                 "Speed": tier['Speed'],
                 "CPA": minion['CPA'],
                 "Flat": minion['Flat Coins'],
-                "Cost": round(tier['Cost'] + upgrade_cost, 1)
+                "Cost": round(tier['Cost'] + upgrade_cost, 1),
+                "Daily Cost": daily_cost
             }
             for tier in minion['Tiers']
         ]
@@ -256,7 +258,7 @@ def create_all_combos(bazaar_cache):
             "Cost": bazaar_cache['PLASMA']['Instant Sell'] * 6 + bazaar_cache['REFINED_MITHRIL']['Instant Sell'] * 55 + bazaar_cache['STARFALL']['Instant Sell'] * 64},
         "Power Crystal": {
             "Speed": 0.01,
-            "Cost": bazaar_cache['SCORCHED_POWER_CRYSTAL']['Instant Sell'] / 2
+            "Daily Cost": bazaar_cache['SCORCHED_POWER_CRYSTAL']['Instant Sell'] / 2
             },
         "Mithril Infusion": {
             "Speed": 0.1,
@@ -281,7 +283,7 @@ def create_all_combos(bazaar_cache):
                 continue
 
             total_speed = sum(base_flags[key]['Speed'] for key in combo)
-            total_cost = sum(base_flags[key]['Cost'] for key in combo)
+            total_cost = sum(base_flags[key].get('Cost',0) for key in combo)
         
             all_combos[tuple(sorted(combo))] = {
                 'Speed': round(total_speed, 4),
@@ -298,8 +300,7 @@ def create_minion_df(minion_data):
                 'Upgrade 1': setup[1],
                 'Upgrade 2': setup[2],
                 'Speed Mod': setup_data['Speed Mod'],
-                'Daily Cost': tier['Cost']
-                **tier  # Unpack Tier dictionary (Tier, Speed, CPA, Flat, Cost)
+                **tier
             }
             rows.append(row)
     return pd.DataFrame(rows)
@@ -309,9 +310,10 @@ def apply_combo(df,combo,effect,minion_info):
         df['Speed Mod'] += effect.get('Speed') - 0.1
     else:
         df['Speed Mod'] += effect.get('Speed')
-    df['Cost'] += effect.get('Cost')
+
+    df['Daily Cost'] += effect.get('Daily Cost') if effect.get('Daily Cost') else 0
+    df['Cost'] += effect.get('Cost',0)
     df['Profit'] = df['CPA'] * 86400 / (2 * df['Speed'] / df['Speed Mod']) + df['Flat'] - df['Daily Cost']
-    df = df.drop(columns=['Speed Mod','Speed','CPA','Flat','Daily Cost'])
     df.insert(df.columns.get_loc('Upgrade 2') + 1, 'Misc Upgrades', [combo]*len(df))
     return df    
 
