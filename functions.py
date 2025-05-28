@@ -310,7 +310,7 @@ def apply_combo(df,combo,effect,minion_info):
         df['Speed Mod'] += effect.get('Speed')
     df['Cost'] += effect.get('Cost')
     df['Profit'] = df['CPA'] * 86400 / (df['Speed'] / df['Speed Mod'] + df['Flat'])
-    df = df.drop(columns=['Speed','CPA','Flat'])
+    df = df.drop(columns=['Speed Mod','Speed','CPA','Flat'])
     df.insert(df.columns.get_loc('Upgrade 2') + 1, 'Misc Upgrades', [combo]*len(df))
     return df    
 
