@@ -138,8 +138,8 @@ else:
     upgrade_mask = (df['Upgrade 1'].isin(upgrade_filter)) & (df['Upgrade 2'].isin(upgrade_filter))
 
 filtered_df = df[
-    ((df['Minion'].isin(minion_filter)) | (not minion_filter)) &
-    ((df['Fuel'].isin(fuel_filter)) | (not fuel_filter)) &
+    ((df['Minion'].isin(minion_filter)) if minion_filter else True) &
+    ((df['Fuel'].isin(fuel_filter)) if fuel_filter else True) &
     upgrade_mask
 ]
 
