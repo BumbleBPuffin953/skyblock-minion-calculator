@@ -208,7 +208,7 @@ def minion_processing(minions, fuels, upgrades, bazaar_cache):
                             **{k: v for k, v in tier.items() if k != "Tier"}
                         }
                         misc_results[misc_key].append(result)
-        print(misc_key,misc_results)
+        print(misc_key)
     misc_dfs = {key: pd.DataFrame(rows) for key,rows in misc_results.items()}
     return misc_dfs
 
