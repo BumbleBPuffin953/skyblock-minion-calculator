@@ -259,15 +259,15 @@ def create_all_combos(bazaar_cache):
             "Cost": bazaar_cache['SCORCHED_POWER_CRYSTAL']['Instant Sell'] / 2
             },
         "Mithril Infusion": {
-            "Speed": 0.01,
+            "Speed": 0.1,
             "Cost": bazaar_cache['MITHRIL_INFUSION']['Instant Sell']
             },
         "Free Will": {
-            "Speed": 0.01,
+            "Speed": 0.1,
             "Cost": bazaar_cache['FREE_WILL']['Instant Sell']
             },
         "Postcard": {
-            "Speed": 0.01,
+            "Speed": 0.1,
             "Cost": requests.get('https://sky.coflnet.com/api/auctions/tag/POSTCARD/active/bin').json()[0]['startingBid']
             }
     }
