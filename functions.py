@@ -304,7 +304,7 @@ def create_minion_df(minion_data):
     return pd.DataFrame(rows)
 
 def apply_combo(df,combo,effect,minion_info):
-    if "Floating Crystal" in combo and minion_info['Family'] not in ['Mining','Foraging', 'Farming'] or minion_info['Mob Spawning']:
+    if "Floating Crystal" in combo and minion_info['Family'] not in ['Mining','Foraging', 'Farming'] or minion_info['Mob Spawning'] == 1:
         df['Speed Mod'] += effect.get('Speed') - 0.1
     else:
         df['Speed Mod'] += effect.get('Speed')
