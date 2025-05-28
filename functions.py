@@ -1,6 +1,7 @@
 import math
 import itertools
 import copy
+import pandas as pd
 
 def is_compatible(minion, upgrade):
     """
@@ -102,6 +103,7 @@ def calculate_profit(minion,flags={},bazaar=False,bazaar_cache={},misc_upgrades=
         flags (Dict): holds minion fuel and upgrades as well as their properties
         bazaar (bool): Whether to use bazaar prices or NPC prices.
         bazaar_cache (Dict): A cache mapping item IDs to their bazaar prices.
+        misc_upgrades (Dict): holds miscellaneous upgrades like mithril infusion
 
     Returns:
         Tuple containing
@@ -117,9 +119,10 @@ def calculate_profit(minion,flags={},bazaar=False,bazaar_cache={},misc_upgrades=
     upgrade_drops = [drop for u in (u1,u2) if 'Drops' in u for drop in u['Drops']]
 
     misc_speed = sum(misc_upgrades.values())
-    #Handles all the speed and drop upgrades from fuel, upgrade slots and miscellaneous upgrades
+    if "Power Crystal" in misc_upgrades and "Beacon" not in misc_upgrades:
+        misc_speed -= misc_upgrades["Power Crystal"]
     if minion['Family'] not in ["Mining", "Farming", "Foraging"] and "Floating Crystal" in misc_upgrades:
-        misc_speed -= 0.1
+        misc_speed -= misc_upgrades["Floating Crystal"]
 
     speed_modifier = 1 + fuel.get('Speed',0) + u1.get("Speed",0) + u2.get("Speed",0) + misc_speed
     
@@ -139,7 +142,7 @@ def calculate_profit(minion,flags={},bazaar=False,bazaar_cache={},misc_upgrades=
         }
         for tier in minion['Tiers']])
 
-def minion_processing(minions, fuels, upgrades, bazaar_cache, misc_upgrades):
+def minion_processing(minions, fuels, upgrades, bazaar_cache):
     """
     Computes profit outcomes for all compatible fuel and upgrade combinations across all minions
 
@@ -152,40 +155,87 @@ def minion_processing(minions, fuels, upgrades, bazaar_cache, misc_upgrades):
     Returns:
         A nested dict with all of the desireable outputs
     """
-    all_combinations = {}
+    misc_combinations = generate_misc_combinations()
     fuel_list = list(fuels.values())
     upgrade_items = list(upgrades.items())
 
-    for minion in minions.values():
-        if minion['Name'] not in all_combinations:
-            all_combinations[minion['Name']] = {}
+    misc_results = {}
 
-        for fuel in fuel_list:
-            if not is_compatible(minion,fuel):
-                continue
+    for misc_upgrade_set in misc_combinations:
+        misc_key = tuple(sorted(misc_upgrade_set.keys()))
+        misc_results[misc_key] = []
 
-            for (key1, up1), (key2, up2) in itertools.combinations_with_replacement(upgrade_items, 2):
-                if minion['Name'] == "Gravel Minion":
-                    key2 = "FLINT_SHOVEL"
-                    up2 = upgrades['FLINT_SHOVEL']
-
-                if minion['Name'] in ['Iron Minion', 'Gold Minion', 'Cactus Minion']: 
-                    key2 = "SUPER_COMPACTOR_3000"
-                    up2 = upgrades['SUPER_COMPACTOR_3000']
-
-                flags = {
-                    "Fuel": fuel,
-                    "Upgrade 1": up1,
-                    "Upgrade 2": up2
-                }
-
-                if key1 == key2 and not up1.get("Dupe", False):
-                    continue
-                if not all(is_compatible(minion, u) for u in (up1, up2)):
+        for minion in minions.values():
+            for fuel in fuel_list:
+                if not is_compatible(minion,fuel):
                     continue
 
-                bazaar = True if up1.get("Name") == "Super Compactor" or up2.get("Name") == "Super Compactor" else False
-                combination,tiers = calculate_profit(copy.deepcopy(minion),flags,bazaar,bazaar_cache,misc_upgrades)
-                
-                all_combinations[minion['Name']][combination] = tiers
-    return all_combinations
+                for (key1, up1), (key2, up2) in itertools.combinations_with_replacement(upgrade_items,2):
+                    if minion['Name'] == "Gravel Minion":
+                        key2 = "FLINT_SHOVEL"
+                        up2 = upgrades[key2]
+                    if minion['Name'] in ['Iron Minion', 'Gold Minon', 'Cactus Minion']:
+                        key2 = "DWARVEN_COMPACTOR"
+                        up2 = upgrades[key2]
+                    if key1 == key2 and not up1.get('Dupe',False):
+                        continue
+                    if not all(is_compatible(minion,u) for u in (up1,up2)):
+                        continue
+                    
+                    flags = {
+                        "Fuel": fuel,
+                        "Upgrade 1": up1,
+                        "Upgrade 2": up2
+                    }
+                    
+                    bazaar = any(u.get('Name') == "Super Compactor" for u in (up1,up2))
+
+                    combination,tiers = calculate_profit(
+                        copy.deepcopy(minion),
+                        flags,
+                        bazaar,
+                        bazaar_cache,
+                        misc_upgrade_set
+                    )
+
+                    for tier in tiers:
+                        result = {
+                            "Minion": minion['Name'],
+                            "Tier": tier['Tier'],
+                            "Fuel": combination[0],
+                            "Upgrade 1": combination[1],
+                            "Upgrade 2": combination[2],
+                            **{k: v for k, v in tier.items() if k != "Tier"}
+                        }
+                        misc_results[misc_key].append(result)
+    misc_dfs = {key: pd.DataFram(rows) for key,rows in misc_results.items()}
+    return misc_dfs
+
+def generate_misc_combinations():
+    """
+    Generate all valid combinations of misc upgrades.
+    Power Crystal is only included if Beacon is also present.
+    
+    Returns:
+        List of dictionaries with misc upgrade names as keys and their speed bonuses as values.
+    """
+    NEW_MISC_UPGRADES = {
+        "Floating Crystal": 0.1,
+        "Beacon": 0.1,
+        "Power Crystal": 0.01, 
+        "Infusion": 0.1,
+        "Free Will": 0.1,
+        "Postcard": 0.05
+    }
+
+    misc_names = list(NEW_MISC_UPGRADES.keys())
+    all_combos = []
+
+    for r in range(len(misc_names) + 1):
+        for combo in itertools.combinations(misc_names, r):
+            if "Power Crystal" in combo and "Beacon" not in combo:
+                continue  # Skip invalid combo
+            combo_dict = {name: NEW_MISC_UPGRADES[name] for name in combo}
+            all_combos.append(combo_dict)
+
+    return all_combos
