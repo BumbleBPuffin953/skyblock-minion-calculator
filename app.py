@@ -90,7 +90,6 @@ st.write(f"{int(minutes_since_update)} minutes since last update")
 
 # Fetch and process data after the reload button has been clicked or app is loaded
 
-
 # Filters
 placeholder_minion = st.empty()
 placeholder_fuel = st.empty()
