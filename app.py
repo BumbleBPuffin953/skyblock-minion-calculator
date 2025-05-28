@@ -105,6 +105,9 @@ misc_upgrades = placeholder_misc.multiselect(
     default='None'
 )
 
+if "None" in misc_upgrades and len(misc_upgrades) > 1:
+    misc_upgrades = [x for x in misc_upgrades if x != "None"]
+
 base_flags = {
     "Floating Crystal": 0.1,
     "Beacon": 0.1,
@@ -113,7 +116,10 @@ base_flags = {
     "Free Will": 0.1,
     "Postcard": 0.05
 }
-misc_flags = {} if "None" in misc_upgrades else {k: v for k, v in base_flags.items() if k in misc_upgrades}
+misc_flags = {} if "None" in misc_upgrades else {
+    k: v for k, v in base_flags.items()
+    if k in misc_upgrades and (k != "Power Crystal" or "Beacon" in misc_upgrades)
+}
 
 df = fetch_and_process_data(misc_flags)
 
