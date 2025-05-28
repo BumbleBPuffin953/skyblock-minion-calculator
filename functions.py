@@ -298,6 +298,7 @@ def create_minion_df(minion_data):
                 'Upgrade 1': setup[1],
                 'Upgrade 2': setup[2],
                 'Speed Mod': setup_data['Speed Mod'],
+                'Cost': tier['Cost']
                 **tier  # Unpack Tier dictionary (Tier, Speed, CPA, Flat, Cost)
             }
             rows.append(row)
