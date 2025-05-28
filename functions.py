@@ -298,7 +298,7 @@ def create_minion_df(minion_data):
                 'Upgrade 1': setup[1],
                 'Upgrade 2': setup[2],
                 'Speed Mod': setup_data['Speed Mod'],
-                'Cost': tier['Cost']
+                'Daily Cost': tier['Cost']
                 **tier  # Unpack Tier dictionary (Tier, Speed, CPA, Flat, Cost)
             }
             rows.append(row)
@@ -310,8 +310,8 @@ def apply_combo(df,combo,effect,minion_info):
     else:
         df['Speed Mod'] += effect.get('Speed')
     df['Cost'] += effect.get('Cost')
-    df['Profit'] = df['CPA'] * 86400 / (2 * df['Speed'] / df['Speed Mod']) + df['Flat']
-    df = df.drop(columns=['Speed Mod','Speed','CPA','Flat'])
+    df['Profit'] = df['CPA'] * 86400 / (2 * df['Speed'] / df['Speed Mod']) + df['Flat'] - df['Daily Cost']
+    df = df.drop(columns=['Speed Mod','Speed','CPA','Flat','Daily Cost'])
     df.insert(df.columns.get_loc('Upgrade 2') + 1, 'Misc Upgrades', [combo]*len(df))
     return df    
 
