@@ -141,7 +141,7 @@ def calculate_profit(minion,flags={},bazaar=False,bazaar_cache={},misc_upgrades=
         }
         for tier in minion['Tiers']])
 
-def minion_processing(minions, fuels, upgrades, bazaar_cache):
+def minion_processing(minions, fuels, upgrades, bazaar_cache,misc_upgrades):
     """
     Computes profit outcomes for all compatible fuel and upgrade combinations across all minions
 
@@ -187,7 +187,7 @@ def minion_processing(minions, fuels, upgrades, bazaar_cache):
                     continue
 
                 bazaar = True if up1.get("Name") == "Super Compactor" or up2.get("Name") == "Super Compactor" else False
-                combination,tiers = calculate_profit(copy.deepcopy(minion),flags,bazaar,bazaar_cache)
+                combination,tiers = calculate_profit(copy.deepcopy(minion),flags,bazaar,bazaar_cache,misc_upgrades)
                 
                 all_combinations[minion['Name']][combination] = tiers
     return all_combinations
