@@ -21,12 +21,12 @@ def create_final_df():
     }
     all_combos = create_all_combos(bazaar_cache)
     
-    minion_dict,family_dict = fetch_and_process_data()
+    minion_dict,minion_info = fetch_and_process_data()
 
     all_minion_results = []
     for minion_name,minion_data in minion_dict.items():
         base_df = create_minion_df(minion_data)
-        combo_df = apply_all_combos(base_df.copy(),all_combos,family_dict[minion_name])
+        combo_df = apply_all_combos(base_df.copy(),all_combos,minion_info[minion_name])
         combo_df['Minion'] = minion_name
         all_minion_results.append(combo_df)
 
