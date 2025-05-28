@@ -104,7 +104,7 @@ if cost_ranges:
 
     filtered_df = cost_filtered.drop_duplicates()
 
-filtered_df = df[df['Misc Upgrades'] == tuple(misc_upgrades)]
+filtered_df = df[df['Misc Upgrades'] == tuple(sorted(misc_upgrades))]
 df_display = filtered_df.copy()
 
 new_order = ['Minion', 'Tier', 'Fuel', 'Upgrade 1', 'Upgrade 2', 'Misc Upgrades', 'Profit', 'Cost']
