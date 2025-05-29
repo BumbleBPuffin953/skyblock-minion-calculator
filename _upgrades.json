@@ -133,9 +133,5 @@
     "SUPER_COMPACTOR_3000": {
         "Name": "Super Compactor",
         "Dupe": false
-    },
-    "DWARVEN_COMPACTOR": {
-        "Name": "Super Compactor",
-        "Dupe": false
     }
 }
