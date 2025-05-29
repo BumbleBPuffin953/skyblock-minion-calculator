@@ -34,18 +34,14 @@ def create_final_df():
 
 st.set_page_config(layout="wide")
 
-# Streamlit UI
 st.title("Skyblock Minion Calculator")
 
-# Initialize a session state variable to store the last updated timestamp
 if 'last_updated' not in st.session_state:
     st.session_state.last_updated = datetime.now()
 
-# Calculate the time difference in minutes
 time_diff = datetime.now() - st.session_state.last_updated
-minutes_since_update = time_diff.total_seconds() / 60  # Convert to minutes
+minutes_since_update = time_diff.total_seconds() / 60  
 
-# Display the time difference (minutes since last update) underneath the title
 st.write(f"{int(minutes_since_update)} minutes since last update")
 
 start_time = time.time()
@@ -128,8 +124,7 @@ filtered_df = filtered_df.drop('Misc Upgrades', axis=1).reset_index(drop=True)
 filtered_df = filtered_df.reset_index(drop=True)
 df_display = filtered_df.copy()
 
-# Scale values
-df_display["Profit"] = df_display["Profit"] / 1_000       # Now in thousands
+df_display["Profit"] = df_display["Profit"] / 1_000 
 df_display["Cost"] = df_display["Cost"] / 1_000_000 
 
 st.dataframe(
