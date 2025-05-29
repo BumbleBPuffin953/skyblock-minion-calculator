@@ -56,47 +56,63 @@ new_order = ['Minion','Tier','Fuel','Upgrade 1','Upgrade 2','Misc Upgrades','Pro
 df = df[new_order]
 
 st.write(f"Program took {int(run_time)} seconds to load")
-# Then process other filters (in any order you want in code)
-minion_filter = st.multiselect("Filter Minions", options=df['Minion'].unique())
-fuel_filter = st.multiselect("Filter Fuel", options=df['Fuel'].unique())
 
-all_upgrades = pd.unique(df[['Upgrade 1', 'Upgrade 2']].values.ravel('K'))
-all_upgrades = sorted([x for x in all_upgrades if pd.notna(x)])  # remove NaNs
-
-upgrade_filter = st.multiselect("Filter Upgrades", options=all_upgrades)
-
-cost_ranges = st.multiselect(
-    "Select one or more Craft Cost Ranges",
-    ["< 2M", "2M - 10M", "10M - 50M", "50M+"]
-)
-
-misc_upgrades = st.multiselect(
-    "Select one or more miscellaneous upgrade",
-    ["Floating Crystal", "Beacon", "Power Crystal", "Mithril Infusion", "Free Will", "Postcard"],
-)
-
-if len(upgrade_filter) == 0:
-    upgrade_mask = pd.Series(True, index=df.index)
-elif len(upgrade_filter) == 1:
-    upgrade_mask = (df['Upgrade 1'].isin(upgrade_filter)) | (df['Upgrade 2'].isin(upgrade_filter))
-else:
-    upgrade_mask = (df['Upgrade 1'].isin(upgrade_filter)) & (df['Upgrade 2'].isin(upgrade_filter))
+with st.sidebar:
+    st.header("Filter Options")
     
-if minion_filter:
-    minion_mask = df['Minion'].isin(minion_filter)
-else:
-    minion_mask = pd.Series(True, index=df.index)
+    minion_whitelist = st.multiselect("Minions Whitelist", options=df['Minion'].unique())
+    minion_blacklist = st.multiselect("Minions Blacklist", options=df['Minion'].unique())
 
-if fuel_filter:
-    fuel_mask = df['Fuel'].isin(fuel_filter)
+    fuel_whitelist = st.multiselect("Fuel Whiteliist", options=df['Fuel'].unique())
+    fuel_blacklist = st.multiselect("Fuel Blacklist", options=df['Fuel'].unique())
+
+    all_upgrades = pd.unique(df[['Upgrade 1', 'Upgrade 2']].values.ravel('K'))
+    all_upgrades = sorted([x for x in all_upgrades if pd.notna(x)])
+
+    upgrade_whitelist = st.multiselect("Upgrade Whitelist", options=all_upgrades)
+    upgrade_blacklist = st.multiselect("Upgrade Blacklist", options=all_upgrades)
+
+    cost_ranges = st.multiselect(
+        "Craft Cost",
+        ["< 2M", "2M - 10M", "10M - 50M", "50M+"]
+    )
+
+    misc_upgrades = st.multiselect(
+        "Miscellaneous Upgrades",
+        ["Floating Crystal", "Beacon", "Power Crystal", "Mithril Infusion", "Free Will", "Postcard"],
+    )
+
+if not upgrade_whitelist and not upgrade_blacklist:
+    upgrade_mask = pd.Series(True, index=df.index)
 else:
-    fuel_mask = pd.Series(True, index=df.index)
+    upgrade_mask = pd.Series(True, index=df.index)
+    if upgrade_whitelist:
+        upgrade_mask &= (
+            df['Upgrade 1'].isin(upgrade_whitelist) |
+            df['Upgrade 2'].isin(upgrade_whitelist)
+        )
+    if upgrade_blacklist:
+        upgrade_mask &= ~(
+            df['Upgrade 1'].isin(upgrade_blacklist) |
+            df['Upgrade 2'].isin(upgrade_blacklist)
+        )
+    
+minion_mask = pd.Series(True, index=df.index)
+if minion_whitelist:
+    minion_mask &= df['Minion'].isin(minion_whitelist)
+if minion_blacklist:
+    minion_mask &= ~df['Minion'].isin(minion_blacklist)
+
+fuel_mask = pd.Series(True, index=df.index)
+if fuel_whitelist:
+    fuel_mask &= df['Fuel'].isin(fuel_whitelist)
+if fuel_blacklist:
+    fuel_mask &= ~df['Fuel'].isin(fuel_blacklist)
 
 filtered_df = df[minion_mask & fuel_mask & upgrade_mask]
 
 if cost_ranges:
     cost_filtered = pd.DataFrame()
-
     if "< 2M" in cost_ranges:
         cost_filtered = pd.concat([cost_filtered, filtered_df[filtered_df["Cost"] < 2_000_000]])
     if "2M - 10M" in cost_ranges:
@@ -105,11 +121,10 @@ if cost_ranges:
         cost_filtered = pd.concat([cost_filtered, filtered_df[(filtered_df["Cost"] >= 10_000_000) & (filtered_df["Cost"] < 50_000_000)]])
     if "50M+" in cost_ranges:
         cost_filtered = pd.concat([cost_filtered, filtered_df[filtered_df["Cost"] >= 50_000_000]])
-
     filtered_df = cost_filtered.drop_duplicates()
 
 filtered_df = filtered_df[filtered_df['Misc Upgrades'] == tuple(sorted(misc_upgrades))]
-filtered_df = filtered_df.drop('Misc Upgrades',axis=1)
+filtered_df = filtered_df.drop('Misc Upgrades', axis=1).reset_index(drop=True)
 filtered_df = filtered_df.reset_index(drop=True)
 df_display = filtered_df.copy()
 
