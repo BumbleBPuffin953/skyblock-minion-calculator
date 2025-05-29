@@ -197,6 +197,17 @@ def minion_processing(minions, fuels, upgrades, bazaar_cache,misc_upgrades):
     return all_combinations
 
 def fetch_and_process_data(misc_upgrades={}):
+    """
+    Loads, enriches, and processes raw minion, fuel, and upgrade data for Hypixel Skyblock minion calculations.
+
+    Args:
+        misc_upgrades (dict, optional): A dictionary of additional upgrades or modifiers 
+            that should be considered when processing minions. Defaults to an empty dict.
+
+    Returns:
+        minion_dict (dict): A fully processed dictionary of minions with all costs and modifiers applied.
+        minion_info (dict): A dictionary mapping minion names to metadata such as family and mob spawning type.
+    """
     with open("_data.json","r") as file:
         minions = json.load(file)
 
@@ -206,7 +217,6 @@ def fetch_and_process_data(misc_upgrades={}):
     with open("_upgrades.json","r") as file:
         upgrades = json.load(file)
 
-    # Fetch Bazaar prices
     bazaar_cache = {
         k: {
             "Instant Sell": v["quick_status"]["sellPrice"],
@@ -215,7 +225,6 @@ def fetch_and_process_data(misc_upgrades={}):
         for k, v in requests.get("https://api.hypixel.net/v2/skyblock/bazaar").json()['products'].items()
     }
 
-    # Calculate costs
     for name, minion in minions.items():
         for tier in minion['Tiers']:
             tier['Cost'] = 0
@@ -240,16 +249,25 @@ def fetch_and_process_data(misc_upgrades={}):
 
     minion_dict = minion_processing(copy.deepcopy(minions), copy.deepcopy(fuels), copy.deepcopy(upgrades), copy.deepcopy(bazaar_cache),misc_upgrades)
     minion_info = {
-    minion_name: {
-        "Family": data.get("Family"),
-        "Mob Spawning": data.get("Mob Spawning")
-    }
-    for minion_name, data in minions.items()
-}
+        minion_name: {
+            "Family": data.get("Family"),
+            "Mob Spawning": data.get("Mob Spawning")
+        }for minion_name, data in minions.items()}
     
     return minion_dict,minion_info
 
 def create_all_combos(bazaar_cache):
+    """
+    Computes all valid miscellaneous upgrade combinations and their total speed and cost values.
+
+    Args:
+        bazaar_cache (Dict): A dictionary mapping item IDs to their current bazaar prices,
+            containing 'Instant Sell' and 'Instant Buy' values.
+
+    Returns:
+        Dict: A dictionary where each key is a tuple of upgrade names (sorted),
+        and each value is a dictionary with total 'Speed' and 'Cost' for that combo.
+    """
     base_flags = {
         "Floating Crystal": {
             "Speed": 0.1,
@@ -280,7 +298,6 @@ def create_all_combos(bazaar_cache):
     keys = list(base_flags)
     for r in range(0, len(keys)+1):
         for combo in itertools.combinations(keys, r):
-            # Enforce condition: Power Crystal only if Beacon is present
             if 'Power Crystal' in combo and 'Beacon' not in combo:
                 continue
 
@@ -294,6 +311,17 @@ def create_all_combos(bazaar_cache):
     return all_combos
 
 def create_minion_df(minion_data):
+    """
+    Creates a DataFrame representing all minion tier setups with associated fuels, upgrades, and stats.
+
+    Args:
+        minion_data (Dict): A dictionary containing minion setups as keys (tuples of fuel and upgrades)
+            and setup data including tiers and speed modifiers.
+
+    Returns:
+        pd.DataFrame: A DataFrame where each row corresponds to a specific minion tier combined with
+            its fuel and upgrades, including the speed modifier and tier-specific attributes.
+    """
     rows = []
     for setup, setup_data in minion_data.items():
         for tier in setup_data['Tiers']:
@@ -308,6 +336,19 @@ def create_minion_df(minion_data):
     return pd.DataFrame(rows)
 
 def apply_combo(df,combo,effect,minion_info):
+    """
+    Applies the effects of a given upgrade combo to the minion DataFrame, updating speed, cost, and profit.
+
+    Args:
+        df (pd.DataFrame): The DataFrame containing minion setups and their current stats.
+        combo (tuple): A tuple of upgrade names representing the combo being applied.
+        effect (Dict): A dictionary with keys like 'Speed', 'Cost', and 'Daily Cost' representing the combo’s effects.
+        minion_info (Dict): Metadata about the minion, including 'Family' and 'Mob Spawning' status.
+
+    Returns:
+        pd.DataFrame: The updated DataFrame with modified 'Speed Mod', 'Daily Cost', 'Cost', 'Profit',
+        and a new 'Misc Upgrades' column indicating the applied combo.
+    """
     if "Floating Crystal" in combo and minion_info['Family'] not in ['Mining','Foraging', 'Farming'] or minion_info['Mob Spawning'] == 1:
         df['Speed Mod'] += effect.get('Speed') - 0.1
     else:
@@ -320,6 +361,17 @@ def apply_combo(df,combo,effect,minion_info):
     return df    
 
 def apply_all_combos(df,all_combos,minion_info):
+    """
+    Applies all upgrade combinations to the given minion DataFrame, producing an expanded DataFrame with every combo applied.
+
+    Args:
+        df (pd.DataFrame): The original minion DataFrame with base stats.
+        all_combos (Dict): A dictionary mapping upgrade combo tuples to their effect dictionaries.
+        minion_info (Dict): Metadata about the minion, such as 'Family' and 'Mob Spawning'.
+
+    Returns:
+        pd.DataFrame: A concatenated DataFrame containing rows for every upgrade combo applied to the minion data.
+    """
     modified_frame = [
         apply_combo(df.copy(),combo,effect,minion_info)
         for combo,effect in all_combos.items()
