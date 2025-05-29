@@ -178,21 +178,18 @@ def minion_processing(minions, fuels, upgrades, bazaar_cache,misc_upgrades):
                     key2 = "SUPER_COMPACTOR_3000"
                     up2 = upgrades['SUPER_COMPACTOR_3000']
 
+                if key1 == key2 and not up1.get("Dupe", False):
+                    continue
+                if not all(is_compatible(minion, u) for u in (up1, up2)):
+                    continue
+                if {key1, key2} == {"SUPER_COMPACTOR_3000", "CORRUPT_SOIL"}:
+                    continue
+
                 flags = {
                     "Fuel": fuel,
                     "Upgrade 1": up1,
                     "Upgrade 2": up2
                 }
-
-
-                if key1 == key2 and not up1.get("Dupe", False):
-                    continue
-                if not all(is_compatible(minion, u) for u in (up1, up2)):
-                    continue
-                if {key1,key2} == {"SUPER_COMPACTOR_3000", "DWARVEN_COMPACTOR"}:
-                    continue
-                if {key1,key2} == {"SUPER_COMPACTOR_3000","CORRUPT_SOIL"}:
-                    continue
 
                 bazaar = True if up1.get("Name") == "Super Compactor" or up2.get("Name") == "Super Compactor" else False
                 combination,tiers = calculate_profit(copy.deepcopy(minion),flags,bazaar,bazaar_cache,misc_upgrades)
