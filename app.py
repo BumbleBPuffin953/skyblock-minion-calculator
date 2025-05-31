@@ -9,6 +9,7 @@ import copy
 import requests
 from datetime import datetime
 import time
+import math
 
 @st.cache_data(ttl=3600)
 def create_final_df():
@@ -51,6 +52,7 @@ run_time = time.time() - start_time
 new_order = ['Minion','Tier','Fuel','Upgrade 1','Upgrade 2','Misc Upgrades','Profit','Cost']
 df = df[new_order]
 
+max_craft_cost = math.ceil(df['Cost'].max()/1000000)
 st.write(f"Program took {int(run_time)} seconds to load")
 
 with st.sidebar:
@@ -68,10 +70,15 @@ with st.sidebar:
     upgrade_whitelist = st.multiselect("Upgrade Whitelist", options=all_upgrades)
     upgrade_blacklist = st.multiselect("Upgrade Blacklist", options=all_upgrades)
 
-    cost_ranges = st.multiselect(
-        "Craft Cost",
-        ["< 2M", "2M - 10M", "10M - 50M", "50M+"]
-    )
+    col1, col2 = st.columns(2)
+    with col1:
+        min_cost = st.number_input("Craft Cost Lower Bound (M)",step=1,value=0) * 1000000
+
+    with col2:
+        max_cost = st.number_input("Craft Cost Upper Bound (M)",step=1,value=max_craft_cost) * 1000000
+
+    if min_cost > max_cost:
+        min_cost, max_cost = max_cost, min_cost
 
     misc_upgrades = st.multiselect(
         "Miscellaneous Upgrades",
@@ -107,17 +114,10 @@ if fuel_blacklist:
 
 filtered_df = df[minion_mask & fuel_mask & upgrade_mask]
 
-if cost_ranges:
-    cost_filtered = pd.DataFrame()
-    if "< 2M" in cost_ranges:
-        cost_filtered = pd.concat([cost_filtered, filtered_df[filtered_df["Cost"] < 2_000_000]])
-    if "2M - 10M" in cost_ranges:
-        cost_filtered = pd.concat([cost_filtered, filtered_df[(filtered_df["Cost"] >= 2_000_000) & (filtered_df["Cost"] < 10_000_000)]])
-    if "10M - 50M" in cost_ranges:
-        cost_filtered = pd.concat([cost_filtered, filtered_df[(filtered_df["Cost"] >= 10_000_000) & (filtered_df["Cost"] < 50_000_000)]])
-    if "50M+" in cost_ranges:
-        cost_filtered = pd.concat([cost_filtered, filtered_df[filtered_df["Cost"] >= 50_000_000]])
-    filtered_df = cost_filtered.drop_duplicates()
+filtered_df = filtered_df[
+    (filtered_df["Cost"] >= min_cost) & 
+    (filtered_df["Cost"] <= max_cost)
+]
 
 filtered_df = filtered_df[filtered_df['Misc Upgrades'] == tuple(sorted(misc_upgrades))]
 filtered_df = filtered_df.drop('Misc Upgrades', axis=1).reset_index(drop=True)
