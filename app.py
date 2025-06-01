@@ -51,6 +51,7 @@ run_time = time.time() - start_time
 
 new_order = ['Minion','Tier','Fuel','Upgrade 1','Upgrade 2','Misc Upgrades','Profit','Cost']
 df = df[new_order]
+df['ROI'] = df['Cost'] / df['Profit']
 
 max_craft_cost = math.ceil(df['Cost'].max()/1000000)
 st.write(f"Program took {int(run_time)} seconds to load")
