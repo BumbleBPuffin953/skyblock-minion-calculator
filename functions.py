@@ -35,6 +35,8 @@ def apply_all_drop_modifiers(minion, fuel, u1,u2):
         minion (Dict): The minion dictionary containing 'Drops'.
         fuel (Dict): Fuel dictionary with optional 'Drops' multiplier.
         upgrades (Tuple[Dict, Dict]): Two upgrade dictionaries.
+    
+    note: Currently does not account for voidling minion drop buff with soulflow engine.
     """
     drop_multiplier = fuel.get("Drops", 1)
     chance_modifier = math.prod([u.get('Chance', 1) for u in (u1,u2)])
@@ -64,7 +66,6 @@ def base_cpa(minion, bazaar, bazaar_cache):
             minion['CPA'] += enchanted_drops * drop['Chance'] * enchanted_price
         else:
             minion['CPA'] += drop['Amount'] * drop['Chance'] * drop['NPC Price']
-
 def upgrade_cpa(minion, udrops, bazaar, bazaar_cache):
     """
     Calculates the CPA from the upgrade drops and adds it to the base CPA.
