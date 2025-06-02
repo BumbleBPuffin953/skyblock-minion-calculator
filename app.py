@@ -51,7 +51,9 @@ run_time = time.time() - start_time
 
 new_order = ['Minion','Tier','Fuel','Upgrade 1','Upgrade 2','Misc Upgrades','Profit','Cost']
 df = df[new_order]
-df['ROI'] = df['Cost'] / df['Profit']
+INT32_MAX = 2_147_483_647
+
+df['ROI'] = df.apply(lambda row: row['Cost'] / row['Profit'] if row['Profit'] > 0 else INT32_MAX, axis=1)
 
 max_craft_cost = math.ceil(df['Cost'].max()/1000000)
 st.write(f"Program took {int(run_time)} seconds to load")
