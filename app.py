@@ -44,6 +44,7 @@ minutes_since_update = time_diff.total_seconds() / 60
 
 st.write(f"{int(minutes_since_update)} minutes since last update")
 df = create_final_df()
+df['Misc Upgrades'] = pd.Categorical(df['Misc Upgrades'])
 
 new_order = ['Minion','Tier','Fuel','Upgrade 1','Upgrade 2','Misc Upgrades','Profit','Cost']
 df = df[new_order]
@@ -91,46 +92,35 @@ with st.sidebar.form("Filters_Form"):
 if st.session_state.filters_applied:
     st.session_state.filters_applied = False
 
-    upgrade_mask = pd.Series(True, index=df.index)
-    if upgrade_whitelist:
-        upgrade_mask &= (
-            df['Upgrade 1'].isin(upgrade_whitelist) |
-            df['Upgrade 2'].isin(upgrade_whitelist)
-        )
+    target_tuple = tuple(sorted(misc_upgrades))
+    target_cat = pd.Categorical([target_tuple],categories=df['Misc Upgrades'].cat.categories)[0]
 
-    if upgrade_blacklist:
-        upgrade_mask &= ~(
-            df['Upgrade 1'].isin(upgrade_blacklist) |
-            df['Upgrade 2'].isin(upgrade_blacklist)
-        )
+    mask = pd.Series(True,index=df.index)
 
-    minion_mask = pd.Series(True, index=df.index)
     if minion_whitelist:
-        minion_mask &= df['Minion'].isin(minion_whitelist)
+        mask &= df['Minion'].isin(minion_whitelist)
     if minion_blacklist:
-        minion_mask &= ~df['Minion'].isin(minion_blacklist)
+        mask &= ~df['Minion'].isin(minion_blacklist)
 
-    fuel_mask = pd.Series(True, index=df.index)
     if fuel_whitelist:
-        fuel_mask &= df['Fuel'].isin(fuel_whitelist)
+        mask &= df['Fuel'].isin(fuel_whitelist)
     if fuel_blacklist:
-        fuel_mask &= ~df['Fuel'].isin(fuel_blacklist)
+        mask &= ~df['Fuel'].isin(fuel_blacklist)
 
-    filtered_df = df[minion_mask & fuel_mask & upgrade_mask]
-    filtered_df = filtered_df[
-        (filtered_df["Cost"] >= min_cost * 1_000_000) & 
-        (filtered_df["Cost"] <= max_cost * 1_000_000)
-    ]
+    if upgrade_whitelist:
+        mask &= df['Upgrade 1'].isin(upgrade_whitelist) | df['Upgrade 2'].isin(upgrade_whitelist)
+    if upgrade_blacklist:
+        mask &= ~(df['Upgrade 1'].isin(upgrade_blacklist) |df['Upgrade 2'].isin(upgrade_blacklist))
 
-    filtered_df = filtered_df[filtered_df['Misc Upgrades'] == tuple(sorted(misc_upgrades))]
-    filtered_df = filtered_df.drop('Misc Upgrades', axis=1).reset_index(drop=True)
+    mask &= (df['Cost'] >= min_cost) & (df['Cost'] <= max_cost)
+    mask &= (df['Misc Upgrades'] == target_cat)
 
-    df_display = filtered_df.copy()
-    df_display["Profit"] = df_display["Profit"] / 1_000 
-    df_display["Cost"] = df_display["Cost"] / 1_000_000 
+    filtered_df = df[mask].copy().drop('Misc Upgrades', axis=1).reset_index(drop=True)
+    filtered_df['Profit'] = filtered_df['Profit'] / 1_000
+    filtered_df['Cost'] = filtered_df['Cost'] / 1_000_000
 
     st.dataframe(
-        df_display,
+        filtered_df,
         column_config={
             "Profit": NumberColumn("Profit", format="%.1fK", help="Daily profit in thousands of coins"),
             "Cost": NumberColumn("Cost", format="%.2fM", help="Cost to craft this minion setup, in millions"),
