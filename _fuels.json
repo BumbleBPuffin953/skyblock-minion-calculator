@@ -73,5 +73,11 @@
         "Drops": 1,
         "Duration": -1,
         "Name": "Everburning Flame"
+    },
+    "None": {
+        "Speed": 0,
+        "Drops": 1,
+        "Duration": -1,
+        "Name": "Empty"
     }
 }
