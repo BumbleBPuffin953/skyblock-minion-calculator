@@ -133,5 +133,9 @@
     "SUPER_COMPACTOR_3000": {
         "Name": "Super Compactor",
         "Dupe": false
+    },
+    "None": {
+        "Name": "Empty",
+        "Dupe": true
     }
 }
