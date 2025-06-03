@@ -8,7 +8,6 @@ import json
 import copy
 import requests
 from datetime import datetime
-import time
 import math
 
 @st.cache_data(ttl=3600)
@@ -108,7 +107,11 @@ if st.session_state.filters_applied:
         mask &= ~df['Fuel'].isin(fuel_blacklist)
 
     if upgrade_whitelist:
-        mask &= df['Upgrade 1'].isin(upgrade_whitelist) | df['Upgrade 2'].isin(upgrade_whitelist)
+        upgrade_whitelist_set = set(upgrade_whitelist)
+        if len(upgrade_whitelist_set) == 1:
+            mask &= df['Upgrade 1'].isin(upgrade_whitelist_set) | df['Upgrade 2'].isin(upgrade_whitelist_set)
+        else:
+            mask &= df['Upgrade 1'].isin(upgrade_whitelist_set) & df['Upgrade 2'].isin(upgrade_whitelist_set)   
     if upgrade_blacklist:
         mask &= ~(df['Upgrade 1'].isin(upgrade_blacklist) |df['Upgrade 2'].isin(upgrade_blacklist))
 
