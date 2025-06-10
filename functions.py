@@ -245,7 +245,7 @@ def fetch_and_process_data(misc_upgrades={}):
             fuels[name]['Cost'] = bazaar_cache.get(name, {}).get('Instant Sell', 0) if fuel['Duration'] == -1 else 86400 / fuel['Duration'] * bazaar_cache.get(name, {}).get('Instant Sell', 0)
         fuels[name]['Daily Cost'] = 0 if fuel['Duration'] == -1 else 86400 / fuel['Duration'] * bazaar_cache.get(name, {}).get('Instant Sell', 0)
         
-    for name,upgrade in upgrades.items():
+    for name in upgrades:
         upgrades[name]['Cost'] = bazaar_cache.get(name, {}).get('Instant Sell', 0)
 
     minion_dict = minion_processing(copy.deepcopy(minions), copy.deepcopy(fuels), copy.deepcopy(upgrades), copy.deepcopy(bazaar_cache),misc_upgrades)
