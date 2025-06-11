@@ -9,9 +9,11 @@ import copy
 import requests
 from datetime import datetime
 import math
+import numpy as np
 
 @st.cache_data(ttl=3600)
 def create_final_df():
+    INT32_MAX = 2_147_483_647
     bazaar_cache = {
         k: {
             "Instant Sell": v["quick_status"]["sellPrice"],
@@ -28,6 +30,7 @@ def create_final_df():
         base_df = create_minion_df(minion_data)
         combo_df = apply_all_combos(base_df.copy(),all_combos,minion_info[minion_name])
         combo_df['Minion'] = minion_name
+        combo_df['ROI'] = np.where(combo_df['Profit'] > 0, combo_df['Cost'] / combo_df['Profit'], INT32_MAX)
         all_minion_results.append(combo_df)
 
     return pd.concat(all_minion_results,ignore_index=True)
@@ -38,18 +41,12 @@ st.title("Skyblock Minion Calculator")
 if 'last_updated' not in st.session_state:
     st.session_state.last_updated = datetime.now()
 
-time_diff = datetime.now() - st.session_state.last_updated
-minutes_since_update = time_diff.total_seconds() / 60  
-
-st.write(f"{int(minutes_since_update)} minutes since last update")
 df = create_final_df()
 df['Misc Upgrades'] = pd.Categorical(df['Misc Upgrades'])
 
-new_order = ['Minion','Tier','Fuel','Upgrade 1','Upgrade 2','Misc Upgrades','Profit','Cost']
+new_order = ['Minion','Tier','Fuel','Upgrade 1','Upgrade 2','Misc Upgrades','Profit','Cost','ROI']
 df = df[new_order]
-INT32_MAX = 2_147_483_647
 
-df['ROI'] = df.apply(lambda row: row['Cost'] / row['Profit'] if row['Profit'] > 0 else INT32_MAX, axis=1)
 max_craft_cost = math.ceil(df['Cost'].max()/1000000)
 
 if 'filters_applied' not in st.session_state:
