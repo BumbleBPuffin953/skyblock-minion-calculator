@@ -119,14 +119,16 @@ def calculate_profit(minion,flags={},bazaar=False,bazaar_cache={},misc_upgrades=
     
     upgrade_cost = fuel.get('Cost',0) + u1.get('Cost',0) + u2.get('Cost',0)
     daily_cost = fuel.get('Daily Cost',0)
-    apply_all_drop_modifiers(minion, fuel, u1,u2)
+
     upgrade_drops = [drop for u in (u1,u2) if 'Drops' in u for drop in u['Drops']]
+                
+    apply_all_drop_modifiers(minion, fuel, u1,u2)
 
     speed_modifier = 1 + fuel.get('Speed',0) + u1.get('Speed',0) + u2.get('Speed',0)
     
     base_cpa(minion, bazaar, bazaar_cache)
     upgrade_cpa(minion, upgrade_drops, bazaar, bazaar_cache)
-
+    
     return (
     (fuel.get('Name', ""), u1.get('Name', ""), u2.get('Name', "")),
     {

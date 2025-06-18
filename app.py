@@ -38,16 +38,13 @@ def create_final_df():
 st.set_page_config(layout="wide")
 st.title("Skyblock Minion Calculator")
 
-if 'last_updated' not in st.session_state:
-    st.session_state.last_updated = datetime.now()
-
 df = create_final_df()
 df['Misc Upgrades'] = pd.Categorical(df['Misc Upgrades'])
 
 new_order = ['Minion','Tier','Fuel','Upgrade 1','Upgrade 2','Misc Upgrades','Profit','Cost','ROI']
 df = df[new_order]
 
-max_craft_cost = math.ceil(df['Cost'].max()/1000000)
+max_craft_cost = float(math.ceil(df['Cost'].max()/1000000))
 
 if 'filters_applied' not in st.session_state:
     st.session_state.filters_applied = True
@@ -58,7 +55,9 @@ with st.sidebar.form("Filters_Form"):
     minion_whitelist = st.multiselect("Minions Whitelist", options=df['Minion'].unique())
     minion_blacklist = st.multiselect("Minions Blacklist", options=df['Minion'].unique())
 
-    fuel_whitelist = st.multiselect("Fuel Whiteliist", options=df['Fuel'].unique())
+    minion_tier_range = st.slider("Minion Tier Range", min_value=1,max_value=12,value=(1,12),step=1)
+
+    fuel_whitelist = st.multiselect("Fuel Whitelist", options=df['Fuel'].unique())
     fuel_blacklist = st.multiselect("Fuel Blacklist", options=df['Fuel'].unique())
 
     all_upgrades = pd.unique(df[['Upgrade 1', 'Upgrade 2']].values.ravel('K'))
@@ -69,10 +68,10 @@ with st.sidebar.form("Filters_Form"):
 
     col5, col6 = st.columns(2)
     with col5:
-        min_cost = st.number_input("Craft Cost Lower Bound (M)",step=1,value=0) * 1000000
+        min_cost = st.number_input("Craft Cost Lower Bound (M)",step=0.01,value=0.00) * 1000000
 
     with col6:
-        max_cost = st.number_input("Craft Cost Upper Bound (M)",step=1,value=max_craft_cost) * 1000000
+        max_cost = st.number_input("Craft Cost Upper Bound (M)",step=0.01,value=max_craft_cost) * 1000000
 
     if min_cost > max_cost:
         min_cost, max_cost = max_cost, min_cost
@@ -92,6 +91,9 @@ if st.session_state.filters_applied:
     target_cat = pd.Categorical([target_tuple],categories=df['Misc Upgrades'].cat.categories)[0]
 
     mask = pd.Series(True,index=df.index)
+
+    if minion_tier_range:
+        mask &= df['Tier'].between(*minion_tier_range)
 
     if minion_whitelist:
         mask &= df['Minion'].isin(minion_whitelist)

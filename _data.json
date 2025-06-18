@@ -2,6 +2,20 @@
     "Acacia Minion": {
         "Tiers": [
             {
+                "Tier": 9,
+                "Speed": 33,
+                "Recipe": [
+                    {
+                        "Item": "LOG_2",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_ACACIA_LOG",
+                        "Amount": 504
+                    }
+                ]
+            },
+            {
                 "Tier": 11,
                 "Speed": 27,
                 "Recipe": [
@@ -34,6 +48,20 @@
     "Birch Minion": {
         "Tiers": [
             {
+                "Tier": 9,
+                "Speed": 33,
+                "Recipe": [
+                    {
+                        "Item": "LOG:2",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_BIRCH_LOG",
+                        "Amount": 504
+                    }
+                ]
+            },
+            {
                 "Tier": 11,
                 "Speed": 27,
                 "Recipe": [
@@ -65,6 +93,20 @@
     },
     "Blaze Minion": {
         "Tiers": [
+            {
+                "Tier": 9,
+                "Speed": 21,
+                "Recipe": [
+                    {
+                        "Item": "BLAZE_ROD",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_BLAZE_POWDER",
+                        "Amount": 992
+                    }
+                ]
+            },
             {
                 "Tier": 11,
                 "Speed": 16.5,
@@ -124,6 +166,24 @@
     "Cactus Minion": {
         "Tiers": [
             {
+                "Tier": 9,
+                "Speed": 18,
+                "Recipe": [
+                    {
+                        "Item": "CACTUS",
+                        "Amount": 832
+                    },
+                    {
+                        "Item": "ENCHANTED_CACTUS_GREEN",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_CACTUS",
+                        "Amount": 8
+                    }
+                ]
+            },
+            {
                 "Tier": 11,
                 "Speed": 15,
                 "Recipe": [
@@ -177,6 +237,24 @@
     },
     "Carrot Minion": {
         "Tiers": [
+            {
+                "Tier": 9,
+                "Speed": 12,
+                "Recipe": [
+                    {
+                        "Item": "CARROT_ITEM",
+                        "Amount": 832
+                    },
+                    {
+                        "Item": "ENCHANTED_CARROT",
+                        "Amount": 992
+                    },
+                    {
+                        "Item": "ENCHANTED_GOLDEN_CARROT",
+                        "Amount": 8
+                    }
+                ]
+            },
             {
                 "Tier": 11,
                 "Speed": 10,
@@ -232,6 +310,20 @@
     "Cave Spider Minion": {
         "Tiers": [
             {
+                "Tier": 9,
+                "Speed": 17,
+                "Recipe": [
+                    {
+                        "Item": "SPIDER_EYE",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_SPIDER_EYE",
+                        "Amount": 992
+                    }
+                ]
+            },
+            {
                 "Tier": 11,
                 "Speed": 13,
                 "Recipe": [
@@ -276,6 +368,20 @@
     },
     "Chicken Minion": {
         "Tiers": [
+            {
+                "Tier": 9,
+                "Speed": 18,
+                "Recipe": [
+                    {
+                        "Item": "RAW_CHICKEN",
+                        "Amount": 960
+                    },
+                    {
+                        "Item": "ENCHANTED_RAW_CHICKEN",
+                        "Amount": 504
+                    }
+                ]
+            },
             {
                 "Tier": 11,
                 "Speed": 15,
@@ -332,6 +438,20 @@
     "Clay Minion": {
         "Tiers": [
             {
+                "Tier": 9,
+                "Speed": 20,
+                "Recipe": [
+                    {
+                        "Item": "CLAY_BALL",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_CLAY_BALL",
+                        "Amount": 504
+                    }
+                ]
+            },
+            {
                 "Tier": 11,
                 "Speed": 16,
                 "Recipe": [
@@ -381,6 +501,20 @@
     },
     "Coal Minion": {
         "Tiers": [
+            {
+                "Tier": 9,
+                "Speed": 9,
+                "Recipe": [
+                    {
+                        "Item": "COAL",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_COAL",
+                        "Amount": 992
+                    }
+                ]
+            },
             {
                 "Tier": 11,
                 "Speed": 7,
@@ -439,6 +573,20 @@
     },
     "Cobblestone Minion": {
         "Tiers": [
+            {
+                "Tier": 9,
+                "Speed": 8,
+                "Recipe": [
+                    {
+                        "Item": "COBBLESTONE",
+                        "Amount": 1072
+                    },
+                    {
+                        "Item": "ENCHANTED_COBBLESTONE",
+                        "Amount": 504
+                    }
+                ]
+            },
             {
                 "Tier": 11,
                 "Speed": 7,
