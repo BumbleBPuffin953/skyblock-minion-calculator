@@ -40,7 +40,6 @@ def apply_all_drop_modifiers(minion, fuel, u1,u2):
     """
     drop_multiplier = fuel.get("Drops", 1)
     chance_modifier = math.prod([u.get('Chance', 1) for u in (u1,u2)])
-
     for drop in minion['Drops']:
         drop['Amount'] *= drop_multiplier
         drop['Chance'] *= chance_modifier
