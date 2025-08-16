@@ -6216,6 +6216,36 @@
                         "Amount": 960
                     }
                 ]
+            },
+            {
+                "Tier": 12,
+                "Speed": 8,
+                "Recipe": [
+                    {
+                        "Item": "ENCHANTED_FERMENTED_SPIDER_EYE",
+                        "Amount": 1
+                    },
+                    {
+                        "Item": "TARANTULA_WEB",
+                        "Amount": 948
+                    },
+                    {
+                        "Item": "STRING",
+                        "Amount": 8384
+                    },
+                    {
+                        "Item": "TARANTULA_SILK",
+                        "Amount": 889
+                    },
+                    {
+                        "Item": "ENCHANTED_STRING",
+                        "Amount": 960
+                    },
+                    {
+                        "Item": "GENERATOR_UPGRADE_STONE_TARANTULA_12",
+                        "Amount": 1
+                    }
+                ]
             }
         ],
         "Drops": [
@@ -6642,7 +6672,7 @@
             },
             {
                 "Item": "SEEDS",
-                "Amount": 1,
+                "Amount": 1.5,
                 "Chance": 1.0,
                 "NPC Price": 3,
                 "Enchanted": {
