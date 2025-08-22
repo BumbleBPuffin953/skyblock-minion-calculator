@@ -4716,7 +4716,7 @@
                         "Amount": 960
                     },
                     {
-                        "Item": "ENCHANTED_RABBIT_FOOT",
+                        "Item": "ENCHANTED_RABBIT",
                         "Amount": 32
                     }
                 ]
@@ -4730,7 +4730,7 @@
                         "Amount": 960
                     },
                     {
-                        "Item": "ENCHANTED_RABBIT_FOOT",
+                        "Item": "ENCHANTED_RABBIT",
                         "Amount": 224
                     }
                 ]
@@ -4744,7 +4744,7 @@
                         "Amount": 960
                     },
                     {
-                        "Item": "ENCHANTED_RABBIT_FOOT",
+                        "Item": "ENCHANTED_RABBIT",
                         "Amount": 992
                     }
                 ]
@@ -4758,12 +4758,12 @@
                         "Amount": 960
                     },
                     {
-                        "Item": "ENCHANTED_RABBIT_FOOT",
+                        "Item": "ENCHANTED_RABBIT",
                         "Amount": 992
                     },
                     {
-                        "Item": "ENCHANTED_RABBIT_HIDE",
-                        "Amount": 768
+                        "Item": "ENCHANTED_COOKED_RABBIT",
+                        "Amount": 8
                     }
                 ]
             },
@@ -4776,12 +4776,12 @@
                         "Amount": 960
                     },
                     {
-                        "Item": "ENCHANTED_RABBIT_FOOT",
+                        "Item": "ENCHANTED_RABBIT",
                         "Amount": 992
                     },
                     {
-                        "Item": "ENCHANTED_RABBIT_HIDE",
-                        "Amount": 1792
+                        "Item": "ENCHANTED_COOKED_RABBIT",
+                        "Amount": 24
                     }
                 ]
             }
