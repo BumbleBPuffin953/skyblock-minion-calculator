@@ -1340,7 +1340,7 @@
                 "Chance": 1.0,
                 "NPC Price": 3,
                 "Enchanted": {
-                    "ENCHANTED_LEATHER": 576
+                    "ENCHANTED_LEATHER": 160
                 }
             }
         ],
@@ -4802,7 +4802,7 @@
                 "Chance": 0.35,
                 "NPC Price": 5,
                 "Enchanted": {
-                    "ENCHANTED_RABBIT_HIDE": 576
+                    "ENCHANTED_RABBIT_HIDE": 160
                 }
             },
             {
