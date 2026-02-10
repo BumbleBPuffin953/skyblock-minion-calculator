@@ -2258,7 +2258,7 @@
             {
                 "Item": "YELLOW_FLOWER",
                 "Amount": 1,
-                "Chance": 0.5,
+                "Chance": 0.35,
                 "NPC Price": 1,
                 "Enchanted": {
                     "ENCHANTED_DANDELION": 160
@@ -2267,7 +2267,7 @@
             {
                 "Item": "RED_ROSE",
                 "Amount": 1,
-                "Chance": 0.5,
+                "Chance": 0.15,
                 "NPC Price": 1,
                 "Enchanted": {
                     "ENCHANTED_POPPY": 576
@@ -4799,7 +4799,7 @@
             {
                 "Item": "RABBIT_HIDE",
                 "Amount": 1,
-                "Chance": 0.35,
+                "Chance": 0.70,
                 "NPC Price": 5,
                 "Enchanted": {
                     "ENCHANTED_RABBIT_HIDE": 160
@@ -4808,7 +4808,7 @@
             {
                 "Item": "RABBIT_FOOT",
                 "Amount": 1,
-                "Chance": 0.35,
+                "Chance": 0.70,
                 "NPC Price": 5,
                 "Enchanted": {
                     "ENCHANTED_RABBIT_FOOT": 160
