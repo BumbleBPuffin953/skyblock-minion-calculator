@@ -64,7 +64,7 @@ def base_cpa(minion, bazaar, bazaar_cache):
 
             minion['CPA'] += enchanted_drops * drop['Chance'] * enchanted_price
         else:
-            minion['CPA'] += drop['Amount'] * drop['Chance'] * drop['NPC Price'] * 0.9
+            minion['CPA'] += drop['Amount'] * drop['Chance'] * drop['NPC Price'] * 0.7
 def upgrade_cpa(minion, udrops, bazaar, bazaar_cache):
     """
     Calculates the CPA from the upgrade drops and adds it to the base CPA.
