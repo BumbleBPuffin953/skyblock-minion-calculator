@@ -270,6 +270,17 @@ def create_all_combos(bazaar_cache):
         Dict: A dictionary where each key is a tuple of upgrade names (sorted),
         and each value is a dictionary with total 'Speed' and 'Cost' for that combo.
     """
+    try:
+        response = requests.get('https://sky.coflnet.com/api/auctions/tag/POSTCARD/active/bin')
+        response.raise_for_status()  # make sure HTTP was 200 OK
+        auctions = response.json()
+        if auctions:
+            postcard_cost = auctions[0]['startingBid']
+        else:
+            postcard_cost = 0  # default if no active BINs
+    except (requests.RequestException, ValueError, KeyError, IndexError):
+        # fallback in case of network error or unexpected JSON
+        postcard_cost = 0
     base_flags = {
         "Floating Crystal": {
             "Speed": 0.1,
@@ -292,7 +303,7 @@ def create_all_combos(bazaar_cache):
             },
         "Postcard": {
             "Speed": 0.05,
-            "Cost": requests.get('https://sky.coflnet.com/api/auctions/tag/POSTCARD/active/bin').json()[0]['startingBid']
+            "Cost": postcard_cost
             }
     }
     all_combos = {}
