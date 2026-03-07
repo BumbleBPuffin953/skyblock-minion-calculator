@@ -127,5 +127,5 @@ if st.session_state.filters_applied:
             "Profit": NumberColumn("Profit", format="%.1fK", help="Daily profit in thousands of coins"),
             "Cost": NumberColumn("Cost", format="%.2fM", help="Cost to craft this minion setup, in millions"),
         },
-        use_container_width=True
+        width="stretch"
     )
